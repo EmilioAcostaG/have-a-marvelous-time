@@ -48,12 +48,12 @@
 
 .characterInfo {
     list-style: none;
-    background-color: aquamarine;
     padding-left: 0px;
 }
 
 .characterInfo > li {
     margin-top: 5px;
+}
 
 /* Handle iFrame */
 

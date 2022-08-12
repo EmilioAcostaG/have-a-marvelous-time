@@ -30,6 +30,10 @@ html, body {
     align-content: center;
 }
 
+.content {
+    /* padding: 100px; */
+}
+
 .characters {
     display: flex;
     flex-direction: column;
@@ -37,9 +41,29 @@ html, body {
     justify-content: space-between;
 }
 
-.profileTitle {
+.directions {
     text-shadow: 2px 2px 4px #000000;
-    font-size: 2em;
+    color: var(--color);
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.directions > h1 {
+    font-size: 2.5em;
+}
+
+.directions > h2 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
+.directions > p {
+    font-size: 1em;
+}
+
+.directions > span {
+padding-right: 20px;
 }
 
 .navTitle {
@@ -57,24 +81,25 @@ html, body {
 
 .characterBox {
     color: var(--color);
-    flex: 1 0 0;
+    flex: 0 0 250px;
     margin: 10px;
-    width: 250px;
-    height: 250px;
+    width: 200px;
+    height: 200px;
     text-align: center;
     vertical-align: middle;
     background-color: rgb(155, 34, 34);
     box-shadow: var(--box-shadow);
-    border-radius: 15px;
+    border-radius: 5px;
 }
 
-.profileTop, .profileMiddle, .profileBottom {
+.charactersTop,
+.charactersMiddle,
+.charactersBottom {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
 }
 
 .changeCityButton {
-    margin-top: 150px;
     padding: 10px;
     width: 250px;
     background-color: rgb(155, 34, 34);

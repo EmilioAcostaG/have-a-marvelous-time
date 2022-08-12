@@ -81,7 +81,14 @@ html, body {
 }
 
 .changeCityButton {
-    margin-top: 50px;
+    margin-top: 10px;
+    padding: 10px;
+    width: 250px;
+    /* border-radius: 5px; */
+    background-color: rgb(155, 34, 34);
+    color: var(--color);
+    border: none;
+    font-size: 1em;
 }
 
 .characterInfo {
@@ -91,7 +98,11 @@ html, body {
 }
 
 .characterInfo > li {
-    margin-top: 5px;
+    margin-top: 15px;
+}
+
+.place {
+    color: red;
 }
 
 /* Handle iFrame */

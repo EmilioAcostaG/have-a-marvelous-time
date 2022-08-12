@@ -14,36 +14,47 @@
 .profile {
     border: 1px solid black;
     display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
     justify-content: space-between;
 }
+
+.profileTop, .profileBottom {
+    display: flex;
+    justify-content: space-between;
+}
+
 .profileItem {
     flex: 1 0 0;
+    margin: 10px;
+    height: 500px;
+    /* max-width: 50%; */
+    width: 50%;
+    vertical-align: middle;
+    /* text-align: center; */
 }
 
+.profileMap,
+.profileRecs,
+.profileInfo,
 .profileImage {
     border: 1px solid black;
-
 }
 
-.profileText {
-
-}
-
-.profileInfo {
-    border: 1px solid black;
-}
-
-.profileRecs {
-    border: 1px solid black;
-}
-
-.profileMap {
-    border: 1px solid black;
+.characterInfo {
+    list-style: none;
+    background-color: aquamarine;
+    padding-left: 0px;
 }
 
 @media (max-width: 800px) {
     .profileItem {
       flex: 100%;
+    }
+
+    .profileTop, .profileBottom {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
     }
   }

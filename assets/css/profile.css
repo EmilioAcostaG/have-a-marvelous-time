@@ -1,9 +1,14 @@
-.root {
-
+:root {
+    --border: 1px solid white;
+    --color: white;
 }
 
 * {
     font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background: radial-gradient(circle at center, rgb(105, 105, 105), rgb(34, 34, 34) 100%);
 }
 
 .main {
@@ -11,13 +16,16 @@
 }
 
 .nav {
-    border: 1px solid black;
+    border: var(--border);
     text-align: center;
     height: 150px;
+    background-color: rgb(34, 34, 34);
+    color: var(--color);
+    font-size: 3em;
 }
 
 .profile {
-    border: 1px solid black;
+    border: var(--border);
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -43,12 +51,13 @@
 .profileRecs,
 .profileInfo,
 .profileImage {
-    border: 1px solid black;
+    border: var(--border);
 }
 
 .characterInfo {
     list-style: none;
     padding-left: 0px;
+    color: var(--color);
 }
 
 .characterInfo > li {

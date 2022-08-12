@@ -15,11 +15,15 @@
     border: 1px solid black;
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-between;
+}
+.profileItem {
+    flex: 1 0 0;
 }
 
 .profileImage {
     border: 1px solid black;
-    flex: 1 0 50%;
+
 }
 
 .profileText {
@@ -28,7 +32,6 @@
 
 .profileInfo {
     border: 1px solid black;
-    flex: 1 0 50%;
 }
 
 .profileRecs {
@@ -38,3 +41,9 @@
 .profileMap {
     border: 1px solid black;
 }
+
+@media (max-width: 800px) {
+    .profileItem {
+      flex: 100%;
+    }
+  }

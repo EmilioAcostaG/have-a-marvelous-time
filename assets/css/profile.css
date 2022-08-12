@@ -8,14 +8,18 @@
 
 .nav {
     border: 1px solid black;
+    text-align: center;
 }
 
 .profile {
     border: 1px solid black;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .profileImage {
     border: 1px solid black;
+    flex: 1 0 50%;
 }
 
 .profileText {
@@ -24,6 +28,7 @@
 
 .profileInfo {
     border: 1px solid black;
+    flex: 1 0 50%;
 }
 
 .profileRecs {

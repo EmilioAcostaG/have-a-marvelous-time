@@ -12,24 +12,47 @@ body {
 }
 
 .main {
-    border: 1px solid black;
+
 }
 
 .nav {
-    border: var(--border);
+    /* border: var(--border); */
     text-align: center;
     height: 150px;
-    background-color: rgb(34, 34, 34);
+    /* background-color: rgb(34, 34, 34); */
+    background-color: aqua;
     color: var(--color);
-    font-size: 3em;
+    width: 100vw;
+    /* font-size: 3em; */
 }
 
 .profile {
-    border: var(--border);
+    /* border: var(--border); */
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: space-between;
+}
+
+.profileTitle {
+    text-shadow: 2px 2px 4px #000000;
+    font-size: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navTitle {
+    text-shadow: 2px 2px 4px #000000;
+    font-size: 4em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navTitle > img {
+    max-height: 125px;
+    position: relative;
 }
 
 .profileTop, .profileBottom {
@@ -40,7 +63,6 @@ body {
 .profileItem {
     flex: 1 0 0;
     margin: 10px;
-    height: 500px;
     /* max-width: 50%; */
     width: 50%;
     vertical-align: middle;
@@ -51,7 +73,11 @@ body {
 .profileRecs,
 .profileInfo,
 .profileImage {
-    border: var(--border);
+    /* border: var(--border); */
+}
+
+.profileMap {
+    height: 500px;
 }
 
 .characterInfo {

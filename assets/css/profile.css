@@ -7,9 +7,9 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
-body {
-    /* background: radial-gradient(circle at center, rgb(105, 105, 105), rgb(34, 34, 34) 100%); */
-    background-color: red;
+html, body {
+    background: radial-gradient(circle at center, rgb(105, 105, 105), rgb(34, 34, 34) 100%);
+    height: 100%;
 }
 
 .main {
@@ -18,10 +18,9 @@ body {
 
 .nav {
     text-align: center;
-    position: fixed;
     height: 200px;
     vertical-align: middle;
-    background-color: aqua;
+    background-color: rgb(34, 34, 34);
     color: var(--color);
     width: 100vw;
 }
@@ -36,9 +35,6 @@ body {
 .profileTitle {
     text-shadow: 2px 2px 4px #000000;
     font-size: 2em;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .navTitle {

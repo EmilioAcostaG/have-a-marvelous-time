@@ -17,9 +17,9 @@ function getCharacter() {
         characterDescription = characterResponse.data.results[0].description;
 
         // console.log("Code:", statusCode);
-        console.log("Name:", characterName);
-        console.log("#Comics:", numComics);
-        console.log("Desc:", characterDescription);
+        // console.log("Name:", characterName);
+        // console.log("#Comics:", numComics);
+        // console.log("Desc:", characterDescription);
         $(document).ready(function(){
             $(".profileTitle").html(characterName.toUpperCase());
             $(".characterDescription").html(characterDescription);

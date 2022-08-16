@@ -21,18 +21,26 @@ function getCharacterInfo() {
         somethingToEat = characterInfoResponse[3]["Place"];
         somethingToDo = characterInfoResponse[3]["Restaraunts"];
         readMore = characterInfoResponse[3]["ReadMore"];
+        var toEatArray = [];
+        toEatArray.push(somethingToEat);
+        console.log(toEatArray);
 
         // console.log("Fav Thing:", favThing);
         // console.log("Fav Meal:", favMeal);
         // console.log("Hobbies:", hobbies);
         // console.log("To Eat:", somethingToEat);
         // console.log("To Do:", somethingToDo);
-        console.log("Read More:", readMore);
+        // console.log("Read More:", readMore);
 
         $(".favThing").html(favThing);
         $(".favMeal").html(favMeal);
         $(".hobbies").html(hobbies);
-        $(".toEat").html(somethingToEat);
+        for (let i = 0; i < toEatArray.length; i++) {
+            readMore = characterInfoResponse[3]["ReadMore"];
+            console.log("loop", readMore);
+            $(".toEat").html(somethingToEat);
+        };
+        
         $(".toDo").html(somethingToDo);
         $(".readMore").attr("href", readMore)
 

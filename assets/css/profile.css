@@ -132,7 +132,8 @@ html, body {
 a,
 a:hover,
 a:visited {
-    color: white;
+    color: red;
+    font-style: italic;
 }
 
 /* Handle iFrame */

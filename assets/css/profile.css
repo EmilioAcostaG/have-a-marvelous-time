@@ -129,6 +129,12 @@ html, body {
     color: red;
 }
 
+a,
+a:hover,
+a:visited {
+    color: white;
+}
+
 /* Handle iFrame */
 
 .resp-container {

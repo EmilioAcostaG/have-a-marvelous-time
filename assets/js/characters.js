@@ -3,7 +3,6 @@ var favMeal;
 var hobbies;
 var somethingToEat;
 var somethingToDo;
-// var changeCityButton = $(".changeCityButton");
 
 function getCharacterInfo() {
     var characterInfoUrl = "assets/json/characters.json";
@@ -33,13 +32,12 @@ function getCharacterInfo() {
         $(".toEat").html(somethingToEat);
         $(".toDo").html(somethingToDo);
 
-        $(document).ready(function(){
-            $(".changeCityButton").click(function (event) {
-                console.log(event);
-                console.log("click");
-            });  
+        $(".changeCityButton").click(function (event) {
+            console.log(event);
+            console.log("click");
         });
         
+
     })
     .catch(error => console.log('error', error));
       

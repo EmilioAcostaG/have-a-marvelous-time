@@ -18,32 +18,17 @@ function getCharacterInfo() {
         favThing = characterInfoResponse[3]["Character"];
         favMeal = characterInfoResponse[3]["Food"];
         hobbies = characterInfoResponse[3]["Hobby"];
-        somethingToEat = characterInfoResponse[3]["Place"];
-        somethingToDo = characterInfoResponse[3]["Restaraunts"];
+        somethingToEat = characterInfoResponse[3]["Restaraunts"];
+        somethingToDo = characterInfoResponse[3]["Place"];
         readMore = characterInfoResponse[3]["ReadMore"];
-        var toEatArray = [];
-        toEatArray.push(somethingToEat);
-        console.log(toEatArray);
-
-        // console.log("Fav Thing:", favThing);
-        // console.log("Fav Meal:", favMeal);
-        // console.log("Hobbies:", hobbies);
-        // console.log("To Eat:", somethingToEat);
-        // console.log("To Do:", somethingToDo);
-        // console.log("Read More:", readMore);
+        console.log(somethingToEat.join(', '));
 
         $(".favThing").html(favThing);
         $(".favMeal").html(favMeal);
         $(".hobbies").html(hobbies);
-        for (let i = 0; i < toEatArray.length; i++) {
-            readMore = characterInfoResponse[3]["ReadMore"];
-            console.log("loop", readMore);
-            $(".toEat").html(somethingToEat);
-        };
-        
+        $(".toEat").html(somethingToEat.join(', '));
         $(".toDo").html(somethingToDo);
         $(".readMore").attr("href", readMore)
-
         $(".changeCityButton").click(function (event) {
             console.log(event);
             console.log("click");

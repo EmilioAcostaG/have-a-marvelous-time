@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="/assets/css/reset.css">
     <link rel="stylesheet" href="/assets/css/style.css">
     <link rel="stylesheet" href="/assets/css/profile.css">
-    <script src="assets/js/marvel.js"></script>
 </head>
 <body>
     <section id="mainProfile" class="main">
@@ -39,7 +38,7 @@
                         <li>Read More <i class="fa-solid fa-chevron-right" style='font-size:1em;color:000;'></i></li>
                         <hr>
                         <!-- TODO: Replace to #COMICS dynamically from Marvel API -->
-                        <li><strong># OF COMICS:</strong> {#COMICS}</li>
+                        <li><strong># OF COMICS:</strong> <span class="characterInput">${character}</span></li>
                         <!-- TODO: Replace FAVTHING, FAVMEAL, and HOBBIES dynamically from characters.json -->
                         <li><strong>FAVORITE THING TO DO:</strong> {FAVTHING}</li>
                         <li><strong>FAVORITE MEAL:</strong> {FAVMEAL}</li>
@@ -77,5 +76,7 @@
             </section>
         </section>
     </section>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="assets/js/marvel.js"></script>
 </body>
 </html>

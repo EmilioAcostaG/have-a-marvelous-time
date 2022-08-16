@@ -7,6 +7,7 @@
     <title>Have a Marvelous Time - Profile Page</title>
     <!-- Font Awesome for arrow icons -->
     <script src="https://kit.fontawesome.com/be3a01c72e.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" defer></script>
     <link rel="stylesheet" href="/assets/css/reset.css">
     <link rel="stylesheet" href="/assets/css/style.css">
     <link rel="stylesheet" href="/assets/css/profile.css">
@@ -30,20 +31,16 @@
                         <!-- TODO: Replace NAME dynamically from Marvel API -->
                         <li><h2 class="profileTitle">NAME</h2></li>
                         <!-- TODO: Replace Description dynamically from Marvel API -->
-                        <li class="description">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat quis nostrud exercitation sed.
-                            <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat quis nostrud exercitation sed.
-                        </li>
+                        <li class="characterDescription">DESCRIPTION</li>
                         <!-- TODO: Link to BIO dynamically from Marvel API -->
                         <li>Read More <i class="fa-solid fa-chevron-right" style='font-size:1em;color:000;'></i></li>
                         <hr>
                         <!-- TODO: Replace to #COMICS dynamically from Marvel API -->
-                        <li><strong># OF COMICS:</strong> <span class="numComics">${character}</span></li>
+                        <li><strong># OF COMICS:</strong> <span class="numComics"></span></li>
                         <!-- TODO: Replace FAVTHING, FAVMEAL, and HOBBIES dynamically from characters.json -->
-                        <li class="favThing"><strong>FAVORITE THING TO DO:</strong> {FAVTHING}</li>
-                        <li class="favMeal"><strong>FAVORITE MEAL:</strong> {FAVMEAL}</li>
-                        <li class="hobbies"><strong>HOBBIES:</strong> {HOBBIES}</li>
+                        <li><strong>FAVORITE THING TO DO:</strong> <span class="favThing">{FAVTHING}</span></li>
+                        <li><strong>FAVORITE MEAL:</strong> <span class="favMeal">{FAVMEAL}</span></li>
+                        <li><strong>HOBBIES:</strong> <span class="hobbies">{HOBBIES}</span></li>
                     </ul>
                     <!-- TODO: Enable drop down functionality -->
                     <button class="changeCityButton">CHANGE CITY <i class="fa-solid fa-chevron-down" style='font-size:1em;color:000;'></i></button>
@@ -77,7 +74,6 @@
             </section>
         </section>
     </section>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="assets/js/marvel.js"></script>
     <script src="assets/js/characters.js"></script>
 </body>

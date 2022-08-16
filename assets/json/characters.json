@@ -1,0 +1,86 @@
+[
+    {
+        "Character": "Spiderman",
+        "Place": ["Airport", "Travel Agency", "Campground", "Tourist Attraction"],
+        "Hobby": "Travelling",
+        "Restaraunts": ["Chick-Fil-A", "KFC", "Popeyes"],
+        "Food": "Fried Chicken"
+    },
+    {
+        "Character": "Dr Strange",
+        "Place": ["Museums", "Libraries", "Book Store"],
+        "Hobby": "Reading Books",
+        "Restaraunts": ["Japanese Restaurants", "Thai Restaurants"],
+        "Food": "Sushi"
+    },
+    {
+        "Character": "Gamora",
+        "Place": ["Bar", "Cafe", "Nigh Club", "Bowling", "Casino"],
+        "Hobby": "Hanging Out",
+        "Restaraunts": ["In-N-Out", "McDonald's"],
+        "Food": "Fastfood"
+    },
+    {
+        "Character": "Thor",
+        "Place": ["Shopping Malls", "Supermarket"],
+        "Hobby": "Shopping",
+        "Restaraunts": ["Chinese Restaurants", "Vietnamese Restaurants"],
+        "Food": "Pho"
+    },
+    {
+        "Character": "Scarlet Witch",
+        "Place": ["Movie Rental", "Movie Theater"],
+        "Hobby": "Watching Movies",
+        "Restaraunts": ["European Restaurants", "Middle East Restaurants"],
+        "Food": "Paprikash"
+    },
+    {
+        "Character": "Iron Man",
+        "Place": ["Car Dealer", "Car Repair", "Car Wash"],
+        "Hobby": "Cars",
+        "Restaraunts": ["In-N-Out", "Wendy's", "Arby's"],
+        "Food": "Burgers"
+    },
+    {
+        "Character": "Captain America",
+        "Place": ["Stadium", "Movie Theater", "Gym"],
+        "Hobby": "Football",
+        "Restaraunts": ["Chick-Fil-A", "KFC", "Popeyes"],
+        "Food": "Fried Chicken"
+    },
+    {
+        "Character": "Black Panther",
+        "Place": ["Cafe", "Restaurant"],
+        "Hobby": "Eating",
+        "Restaraunts": ["Hibachi Buffet", "Bars"],
+        "Food": "Different Food"
+    },
+    {
+        "Character": "Black Widow",
+        "Place": ["Hair Salon", "Nail Salon", "Shopping Mall", "Spa"],
+        "Hobby": "Beauty",
+        "Restaraunts": ["Taco Bell", "El Pollo Loco", "Del Taco"],
+        "Food": "Taco"
+    },
+    {
+        "Character": "Groot",
+        "Place": ["Funeral Home", "Church", "Synagogue", "Hindu Temple"],
+        "Hobby": "Being Alone",
+        "Restaraunts": ["Vegetarian Restaurants"],
+        "Food": "Vegetarian food"
+    },
+    {
+        "Character": "Hulk",
+        "Place": ["University", "Libraries", "School"],
+        "Hobby": "Studying",
+        "Restaraunts": ["Tan-cha", "Tiger Sugar", "Ding-tea", "Kungfu Tea"],
+        "Food": "Milk Tea"
+    },
+    {
+        "Character": "Captain Marvel",
+        "Place": ["Liquor Store", "Bar", "Night Club", "Cafe"],
+        "Hobby": "Drinking",
+        "Restaraunts": ["Pizza Hut", "Domino", "Little Caesars Pizza"],
+        "Food": "Pizza"
+    }
+]

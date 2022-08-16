@@ -17,7 +17,7 @@ function getCharacter() {
         var numComics = characterResponse.data.results[0].comics.available;
         var description = characterResponse.data.results[0].description;
 
-        console.log(characterResponse);
+        // console.log(characterResponse);
         console.log("Code:", code);
         console.log("Name:", name);
         console.log("#Comics:", numComics);

@@ -1,47 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<meta name="theme-color" content="#000000">
-	<title>Modal Cities Search</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+
+  <!-- <link rel="stylesheet" href="/assets/js/script.js"> -->
+  <title>Have a Marvelous-time</title>
 </head>
 
 <body>
-    <button class="js-modal-trigger" data-target="citySearchModal">
-        Select a city
-    </button>
-
-    <div id="citySearchModal" class="modal">
-        <div class="modal-background"></div>
-        <div class="modal-content">
-            <div class="field">
-                <label class="label">Name</label>
-                <div class="control">
-                  <input class="input" type="text" placeholder="Text input" id="cities-autocomplete">
-                </div>
+ <section class="hero is-fullheight">  <!-- hero is main container -->
+    <div class="hero-body "> <!-- this keeps text centered -->
+      <div class="container has-text-centered">
+        <p class="title ">
+          Have a <span>MARVEL</span> ous time
+        </p>
+        <button class="button is-danger" data-target="#modal" id="modal-button">Start Your Adventure</button>
+        
+        <div class="modal" id="modal"> <!-- modal card-->
+          <div class="modal-background"></div>
+          <div class="modal-content">
+            <header class="modal-card-head">
+              <p class="modal-card-title">Choose a City:</p> <!-- need to add arrow to the right -->
+              <button class="delete model-close" aria-label="close"></button>
+            </header>
+            <section class="modal-card-body">
+              <div class="content">
+                <input class="input" type="text" placeholder="Text input" id="cities-autocomplete">
               </div>
-            <div class="field is-grouped">
-                <div class="control">
-                  <button id="citySearchBtn" class="button is-link">Submit</button>
-                </div>
-                <div class="control">
-                  <button class="button is-link is-light">Cancel</button>
-                </div>
-            </div>
+            </section>
+            <footer class="modal-card-foot">
+              <button class="button is-success" id="citySearchBtn">Save changes</button>
+              <button class="button">Cancel</button>
+            </footer>
+          </div>
         </div>
-        <button class="modal-close is-large" aria-label="close"></button>
+      </div>
     </div>
+  </section>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
-    <script type="text/javascript" src="./assets/js/script.js"></script>
-    <script async
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDHKbGgdzKP7aoAgQ2dVd_RrIdcbwAArqU&libraries=places&callback=autoFilling">
-    </script>
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="./assets/js/script.js"></script>
+  <script async
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDHKbGgdzKP7aoAgQ2dVd_RrIdcbwAArqU&libraries=places&callback=autoFilling">
+  </script>
+  
 </body>
-
 </html>

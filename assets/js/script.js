@@ -1,4 +1,6 @@
-var googleAPIKey = "AIzaSyDHKbGgdzKP7aoAgQ2dVd_RrIdcbwAArqU";
+var modalButtonEl =  $('#modal-button');
+var citySearchBtn = $('#citySearchBtn');
+var citySearchInput = $('#cities-autocomplete');
 
 function autoFilling() {
     var input = document.getElementById("cities-autocomplete");
@@ -6,48 +8,23 @@ function autoFilling() {
 }
 
 
+modalButtonEl.on('click', function() {
+  console.log("modal will pop up");
 
-document.addEventListener('DOMContentLoaded', () => {
-    // Functions to open and close a modal
-    function openModal($el) {
-      $el.classList.add('is-active');
-    }
+  var target = $(this).data("target");
+  $(".modal").addClass("is-active");
+
+} );
+
+$(".model-close").click(function() {
+  console.log("closed modal")
+ 
+  $(".modal").removeClass("is-active");
+})
+
+citySearchBtn.on('click', function() {
+  console.log(citySearchInput.val());
+  var city = citySearchInput.val('');
+  // continue to work on this click Btn from here
   
-    function closeModal($el) {
-      $el.classList.remove('is-active');
-    }
-  
-    function closeAllModals() {
-      (document.querySelectorAll('.modal') || []).forEach(($modal) => {
-        closeModal($modal);
-      });
-    }
-  
-    // Add a click event on buttons to open a specific modal
-    (document.querySelectorAll('.js-modal-trigger') || []).forEach(($trigger) => {
-      const modal = $trigger.dataset.target;
-      const $target = document.getElementById(modal);
-  
-      $trigger.addEventListener('click', () => {
-        openModal($target);
-      });
-    });
-  
-    // Add a click event on various child elements to close the parent modal
-    (document.querySelectorAll('.modal-background, .modal-close, .modal-card-head .delete, .modal-card-foot .button') || []).forEach(($close) => {
-      const $target = $close.closest('.modal');
-  
-      $close.addEventListener('click', () => {
-        closeModal($target);
-      });
-    });
-  
-    // Add a keyboard event to close all modals
-    document.addEventListener('keydown', (event) => {
-      const e = event || window.event;
-  
-      if (e.keyCode === 27) { // Escape key
-        closeAllModals();
-      }
-    });
-  });
+})

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="theme-color" content="#000000">
+	<title>Modal Cities Search</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+</head>
+
+<body>
+    <button class="js-modal-trigger" data-target="citySearchModal">
+        Select a city
+    </button>
+
+    <div id="citySearchModal" class="modal">
+        <div class="modal-background"></div>
+        <div class="modal-content">
+            <div class="field">
+                <label class="label">Name</label>
+                <div class="control">
+                  <input class="input" type="text" placeholder="Text input" id="cities-autocomplete">
+                </div>
+              </div>
+            <div class="field is-grouped">
+                <div class="control">
+                  <button id="citySearchBtn" class="button is-link">Submit</button>
+                </div>
+                <div class="control">
+                  <button class="button is-link is-light">Cancel</button>
+                </div>
+            </div>
+        </div>
+        <button class="modal-close is-large" aria-label="close"></button>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script type="text/javascript" src="./assets/js/script.js"></script>
+    <script async
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDHKbGgdzKP7aoAgQ2dVd_RrIdcbwAArqU&libraries=places&callback=autoFilling">
+    </script>
+</body>
+
+</html>

@@ -26,7 +26,7 @@
     {
         "Character": "Thor",
         "Place": ["Shopping Malls", "Supermarket"],
-        "Hobby": "Shopping",
+        "Hobby": ["Shopping", "Drinking"],
         "Restaraunts": ["Chinese Restaurants", "Vietnamese Restaurants"],
         "Food": "Pho",
         "ReadMore": "https://www.marvel.com/characters/thor-thor-odinson"

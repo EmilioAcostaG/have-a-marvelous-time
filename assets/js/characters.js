@@ -4,6 +4,7 @@ var hobbies;
 var somethingToEat;
 var somethingToDo;
 var readMore;
+var city = "{CITY}"
 
 function getCharacterInfo() {
     var characterInfoUrl = "assets/json/characters.json";
@@ -21,16 +22,16 @@ function getCharacterInfo() {
         somethingToEat = characterInfoResponse[3]["Restaraunts"];
         somethingToDo = characterInfoResponse[3]["Place"];
         readMore = characterInfoResponse[3]["ReadMore"];
-        console.log(somethingToEat.join(', '));
+        // console.log(somethingToEat.join(', '));
 
+        $(".city").html(city);
         $(".favThing").html(favThing);
         $(".favMeal").html(favMeal);
-        $(".hobbies").html(hobbies);
+        $(".hobbies").html(hobbies.join(', '));
         $(".toEat").html(somethingToEat.join(', '));
-        $(".toDo").html(somethingToDo);
+        $(".toDo").html(somethingToDo.join(', '));
         $(".readMore").attr("href", readMore)
         $(".changeCityButton").click(function (event) {
-            console.log(event);
             console.log("click");
         });
         

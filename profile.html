@@ -28,21 +28,21 @@
                 <!-- Bio -->
                 <section class="profileText profileInfo profileItem">
                     <ul class="characterInfo">
-                        <!-- TODO: Replace NAME dynamically from Marvel API -->
+                        <!-- Replaces NAME dynamically from Marvel API -->
                         <li><h2 class="profileTitle">NAME</h2></li>
-                        <!-- TODO: Replace Description dynamically from Marvel API -->
+                        <!-- Replaces Description dynamically from Marvel API -->
                         <li class="characterDescription">DESCRIPTION</li>
-                        <!-- TODO: Link to BIO dynamically from Marvel API -->
+                        <!-- Link to BIO dynamically from Marvel API -->
                         <li><a class="readMore" href="https://www.marvel.com/" target="_blank">Read More <i class="fa-solid fa-chevron-right" style="font-size:1em;color:000;"></i></a></li>
                         <hr>
-                        <!-- TODO: Replace to #COMICS dynamically from Marvel API -->
+                        <!-- Replaces to #COMICS dynamically from Marvel API -->
                         <li><strong># OF COMICS:</strong> <span class="numComics"></span></li>
-                        <!-- TODO: Replace FAVTHING, FAVMEAL, and HOBBIES dynamically from characters.json -->
+                        <!-- Replaces FAVTHING, FAVMEAL, and HOBBIES dynamically from characters.json -->
                         <li><strong>FAVORITE THING TO DO:</strong> <span class="favThing">{FAVTHING}</span></li>
                         <li><strong>FAVORITE MEAL:</strong> <span class="favMeal">{FAVMEAL}</span></li>
                         <li><strong>HOBBIES:</strong> <span class="hobbies">{HOBBIES}</span></li>
                     </ul>
-                    <!-- TODO: Enable drop down functionality -->
+                    <!-- TODO: Enable search functionality -->
                     <button class="changeCityButton">CHANGE CITY <i class="fa-solid fa-chevron-down" style='font-size:1em;color:000;'></i></button>
                 </section>
             </section>
@@ -52,7 +52,7 @@
                 <section class="profileText profileRecs profileItem">
                     <ul class="characterInfo">
                         <!-- TODO: Replace CITY dynamically from Input -->
-                        <li><h2 class="profileTitle">WHAT WE RECOMMEND FOR {CITY}</h2></li>
+                        <li><h2 class="recsTitle">WHAT WE RECOMMEND FOR <span class="city">{CITY}</span></h2></li>
                         <!-- TODO: Replace PLACE and WHY WE RECOMMEND IT dynamically from characters.json -->
                         <li><strong>FOR SOMETHING TO EAT: </strong><span class="toEat">{PLACE}, {PLACE}, {PLACE}</li></span></li>
                         <li><strong>FOR SOMETHING TO DO: </strong><span class="toDo">{PLACE}</li></span></li>

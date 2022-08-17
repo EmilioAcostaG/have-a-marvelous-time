@@ -78,6 +78,8 @@ padding-right: 20px;
     position: relative;
 }
 
+
+
 .characterBox {
     color: var(--color);
     flex: 0 0 250px;
@@ -89,6 +91,7 @@ padding-right: 20px;
     background-color: rgb(155, 34, 34);
     box-shadow: var(--box-shadow);
     border-radius: 5px;
+    /* Add image stuff here */
 }
 
 .characterBox:hover {

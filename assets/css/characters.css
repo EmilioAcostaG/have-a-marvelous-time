@@ -91,6 +91,10 @@ padding-right: 20px;
     border-radius: 5px;
 }
 
+.characterBox:hover {
+    cursor: pointer;
+}
+
 .charactersTop,
 .charactersMiddle,
 .charactersBottom {

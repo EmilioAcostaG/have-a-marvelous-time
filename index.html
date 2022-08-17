@@ -4,11 +4,50 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Marvelous</title>
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+
+  <!-- <link rel="stylesheet" href="/assets/js/script.js"> -->
+  <title>Have a Marvelous-time</title>
 </head>
+
 <body>
-  <iframe width="600" height="450" style="border:0" loading="lazy" allowfullscreen
-src="https://www.google.com/maps/embed/v1/search?q=...&key=..."></iframe>
+ <section class="hero is-fullheight">  <!-- hero is main container -->
+    <div class="hero-body "> <!-- this keeps text centered -->
+      <div class="container has-text-centered">
+        <p class="title ">
+          Have a <span>MARVEL</span> ous time
+        </p>
+        <button class="button is-danger" data-target="#modal" id="modal-button">Start Your Adventure</button>
+        
+        <div class="modal" id="modal"> <!-- modal card-->
+          <div class="modal-background"></div>
+          <div class="modal-content">
+            <header class="modal-card-head">
+              <p class="modal-card-title">Choose a City:</p> <!-- need to add arrow to the right -->
+              <button class="delete model-close" aria-label="close"></button>
+            </header>
+            <section class="modal-card-body">
+              <div class="content">
+              <p> Insert content here, possible to save to local storage</p><!-- Content ... -->
+              </div>
+            </section>
+            <footer class="modal-card-foot">
+              <button class="button is-success">Save changes</button>
+              <button class="button">Cancel</button>
+            </footer>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="/assets/js/script.js"></script>
+  
+
   
 </body>
 </html>

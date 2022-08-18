@@ -1,7 +1,8 @@
 var modalButtonEl = $('#modal-button');
 var citySearchBtn = $('#citySearchBtn');
 var citySearchInput = $('#cities-autocomplete');
-var city;
+var changeCityBtn = $('#changeCity');
+var characterListUl = $("#characterList");
 
 // These are used in Marvel.js, Characters.html, and Profile.html
 var statusCode;
@@ -41,33 +42,53 @@ function getCharacter() {
       });
   })
   .catch(error => console.log('error', error));
-    
-} getCharacter();
-
+} 
+getCharacter();
 
 function autoFilling() {
     var input = document.getElementById("cities-autocomplete");
     var autocomplete = new google.maps.places.Autocomplete(input);
 }
 
-
 modalButtonEl.on('click', function() {
-  console.log("modal will pop up");
-
-  var target = $(this).data("target");
   $(".modal").addClass("is-active");
+});
 
-} );
-
-$(".model-close").click(function() {
-  console.log("closed modal")
- 
+$(".modal-close").click(function() {
   $(".modal").removeClass("is-active");
-})
+});
+
+function fetchCharactersAndDisplay() {
+  $.getJSON("./assets/json/characters.json", function(data) {
+    console.log(data);
+    data.forEach(element => {
+      characterListUl.append("<li class='character'>"+element.Character+"</li>");
+    });
+  });
+}
 
 citySearchBtn.on('click', function() {
-  city = citySearchInput.val();
-  console.log(city);
+  var city = citySearchInput.val();
   citySearchInput.val('');
-  window.location.replace("./characters.html");
-})
+
+  changeCityBtn.html(city);
+
+  $(".modal").removeClass("is-active");
+  $(".characters").css("visibility", "visible");
+  $(".landing-page").css("visibility", "hidden");
+});
+
+
+changeCityBtn.on('click', function() {
+    $(".modal").addClass("is-active");
+  });
+
+$("#changeCity").click(function () {
+    $(".modal").addClass("is-active");
+});
+
+characterListUl.on("click", ".character", function() {
+    console.log("clicked");
+});
+
+fetchCharactersAndDisplay();

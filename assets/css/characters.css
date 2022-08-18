@@ -78,10 +78,6 @@ padding-right: 20px;
     position: relative;
 }
 
-.thor {
-    overflow: hidden;
-}
-
 .characterBox {
     color: var(--color);
     flex: 0 0 250px;
@@ -93,6 +89,7 @@ padding-right: 20px;
     background-color: rgb(155, 34, 34);
     box-shadow: var(--box-shadow);
     border-radius: 5px;
+    overflow: hidden;
     /* Add image stuff here */
 }
 

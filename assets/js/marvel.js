@@ -16,7 +16,7 @@ function getCharacter() {
         characterName = characterResponse.data.results[0].name;
         numComics = characterResponse.data.results[0].comics.available;
         characterDescription = characterResponse.data.results[0].description;
-        profileImage = characterResponse.data.results[0];
+        profileImage = characterResponse.data.results[0].thumbnail.path + "." + characterResponse.data.results[0].thumbnail.extension;
         console.log(profileImage);
 
         // console.log("Code:", statusCode);
@@ -24,9 +24,9 @@ function getCharacter() {
         // console.log("#Comics:", numComics);
         // console.log("Desc:", characterDescription);
         $(document).ready(function(){
-            // $(".profileImage").html(<img src=""profileImage);
+            $(".profileImage").attr("src",profileImage);
             $(".profileTitle").html(characterName.toUpperCase());
-            $(".characterDescription").html(characterDescription);
+            $(".characterDescription").html("characterDescription");
             $(".numComics").html(numComics);
           });
     })

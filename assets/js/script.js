@@ -37,7 +37,7 @@ function getCharacter() {
           $(".thor").attr("src", profileImage);
           // console.log($(".profileImage").css("background-image", "url(" + profileImage + ")"));
           $(".profileTitle").html(characterName.toUpperCase());
-          $(".characterDescription").html("characterDescription");
+          $(".characterDescription").html(characterDescription);
           $(".numComics").html(numComics);
       });
   })

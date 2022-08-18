@@ -1,4 +1,4 @@
-var modalButtonEl =  $('#modal-button');
+var modalButtonEl = $('#modal-button');
 var citySearchBtn = $('#citySearchBtn');
 var citySearchInput = $('#cities-autocomplete');
 var city;
@@ -24,8 +24,7 @@ $(".model-close").click(function() {
 })
 
 citySearchBtn.on('click', function() {
-  console.log(citySearchInput.val());
-  city = citySearchInput.val('');
-  // continue to work on this click Btn from here
-  
+  city = citySearchInput.val();
+  console.log(city);
+  citySearchInput.val('');
 })

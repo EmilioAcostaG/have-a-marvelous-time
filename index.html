@@ -13,25 +13,18 @@
 
 <body>
  <section class="hero is-fullheight">  <!-- hero is main container -->
-  <div class="hero-head">
-    <nav class="navbar">
-      <div class="container">
-        <nav id="nav" class="nav">
-          <!-- TODO: Move MARVEL closer to "ous" -->
-          <h1 class="navTitle">HAVE A<img src="assets/images/marvel_placeholder.png" aria-label="Marvel logo"/>OUS TIME</h1>
-      </nav>
     <div class="hero-body "> <!-- this keeps text centered -->
       <div class="container has-text-centered">
         <p class="title ">
           Have a <span>MARVEL</span> ous time
         </p>
-        <button class="button is-danger" data-target="#modal" id="modal-button">Start Your Adventure<i class="fa fa-film fa-2x" aria-hidden="true"></i></button>
+        <button class="button" data-target="#modal" id="modal-button">Start Your Adventure<i class="fa fa-film fa-2x" aria-hidden="true"></i></button>
         
         <div class="modal" id="modal"> <!-- modal card-->
           <div class="modal-background"></div>
           <div class="modal-content">
             <header class="modal-card-head">
-              <p class="modal-card-title">Choose a City:</p> <!-- need to add arrow to the right -->
+              <p class="modal-card-title">Choose a City:<i class="fa fa-chevron-circle-down" aria-hidden="true"></i></p> <!-- need to add arrow to the right -->
               <button class="delete model-close" aria-label="close"></button>
             </header>
             <section class="modal-card-body">
@@ -39,9 +32,8 @@
               <p> Insert content here, possible to save to local storage</p><!-- Content ... -->
               </div>
             </section>
-            <footer class="modal-card-foot">
-              <button class="button is-success">Save changes</button>
-              <button class="button">Cancel</button>
+            <footer class="modal-card-foot has-text-centered">
+              <button class="button is-success">Submit</button>
             </footer>
           </div>
         </div>

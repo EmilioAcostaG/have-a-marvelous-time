@@ -2,3 +2,13 @@
 html, body {
   background: radial-gradient(circle at center, rgb(86, 86, 86), rgb(0, 0, 0) 100%);
 }
+
+.button {
+  padding: 10px;
+  width: 250px;
+  background-color: rgb(155, 34, 34);
+  color: var(--color);
+  border: none;
+  font-size: 1em;
+  box-shadow: var(--box-shadow);
+}

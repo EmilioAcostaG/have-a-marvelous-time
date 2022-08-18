@@ -27,4 +27,5 @@ citySearchBtn.on('click', function() {
   city = citySearchInput.val();
   console.log(city);
   citySearchInput.val('');
+  window.location.replace("./characters.html");
 })

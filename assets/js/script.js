@@ -26,7 +26,7 @@ function getCharacter() {
       numComics = characterResponse.data.results[0].comics.available;
       characterDescription = characterResponse.data.results[0].description;
       profileImage = characterResponse.data.results[0].thumbnail.path + "." + characterResponse.data.results[0].thumbnail.extension;
-      console.log(profileImage);
+      console.log("image url", profileImage);
 
       // console.log("Code:", statusCode);
       // console.log("Name:", characterName);
@@ -77,4 +77,23 @@ backButton.on('click', function() {
   console.log(city);
   window.location.replace("./characters.html");
 })
+
+// These need to be passed into functions? All were on characterpage.js ==> consolodating!
+var changeCityBtn = $('#changeCity');
+console.log("city", city);
+changeCityBtn.val(city);
+
+$(".changeCityButton").click(function (event) {
+    console.log("click");
+});
+
+$(".characterBox").click(function (event) {
+    console.log("click");
+});
+
+$(".characterBox").click(function (event) {
+    var characterClicked = event.currentTarget.classList[1];
+    console.log(characterClicked);
+    window.location.replace("./profile.html");
+});
 

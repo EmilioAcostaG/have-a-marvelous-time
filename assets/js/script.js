@@ -9,6 +9,7 @@ var characterName = "thor";
 var numComics;
 var characterDescription;
 var profileImage;
+var backButton = $('.backButton');
 // console.log("image url", profileImage);
 
 // Get character info from Marvel
@@ -71,3 +72,9 @@ citySearchBtn.on('click', function() {
   citySearchInput.val('');
   window.location.replace("./characters.html");
 })
+
+backButton.on('click', function() {
+  console.log(city);
+  window.location.replace("./characters.html");
+})
+

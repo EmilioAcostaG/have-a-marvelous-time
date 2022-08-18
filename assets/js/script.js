@@ -129,7 +129,7 @@ function getCharacterInfo(characterClicked) {
         return characterInfoResponse.json();
     })
     .then((characterInfoResponse) => {
-        // console.log(characterInfoResponse);
+        console.log(characterInfoResponse);
         favThing = characterInfoResponse[3]["Character"];
         favMeal = characterInfoResponse[3]["Food"];
         hobbies = characterInfoResponse[3]["Hobby"];

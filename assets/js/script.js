@@ -31,15 +31,18 @@ function getCharacter(characterName) {
 
       // console.log("Code:", statusCode);
       console.log("Name:", characterName);
+    //   if (characterName.includes("(")) {
+    //     characterName = characterName.replace(/\s/g, '(')
+    //   };
+      console.log("Class:", "." + characterName.replace(/\s/g, '').replace(/"/g, "").replace(/'/g, "").replace(/\(|\)/g, "").toLowerCase());
       // console.log("#Comics:", numComics);
       // console.log("Desc:", characterDescription);
       $(document).ready(function(){
         // $(".thor").css("background-image", "url(" + profileImage + ")");
         // $(".thor").attr("src", profileImage);
         // var passClass = "." + characterName.toLowerCase();
-        $("." + characterName.toLowerCase() + "BoxImage").attr("src", profileImage);
+        $("." + characterName.replace(/\s/g, '').replace(/"/g, "").replace(/'/g, "").replace(/\(|\)/g, "").toLowerCase() + "BoxImage").attr("src", profileImage);
         // console.log("test", passClass);
-        // console.log($(".profileImage").css("background-image", "url(" + profileImage + ")"));
         $(".profileTitle").html(characterName.toUpperCase());
         $(".characterDescription").html(characterDescription);
         $(".numComics").html(numComics);
@@ -52,6 +55,15 @@ function getCharacter(characterName) {
 getCharacter("thor", "thorBoxImage");
 getCharacter("groot", "grootBoxImage");
 getCharacter("hulk", "hulkBoxImage");
+getCharacter("black widow", "blackwidowBoxImage");
+getCharacter("scarlet witch", "hulkBoxImage");
+getCharacter("iron man", "ironmanBoxImage");
+getCharacter("doctor strange", "doctorstrangeBoxImage");
+getCharacter("captain america", "captainamericaBoxImage");
+getCharacter("captain marvel (carol danvers)", "captainmarvelcaroldanversImage");
+getCharacter("gamora", "gamoraBoxImage");
+getCharacter("black panther", "blackpantherBoxImage");
+getCharacter("spider-man (peter parker)", "spider-manpeterparkerImage");
 
 // // Get profile images for all characters
 // function getImages() {

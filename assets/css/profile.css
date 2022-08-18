@@ -83,6 +83,10 @@ html, body {
     /* text-align: center; */
 }
 
+.profileInfo {
+    position: relative;
+}
+
 .profileImage {
     /* border: 0px 2px 2px 2px solid white; */
     box-shadow: var(--box-shadow);
@@ -103,7 +107,8 @@ html, body {
     margin-right: 0px;
 }
 
-.changeCityButton {
+.changeCityButton,
+.backButton {
     margin-top: 150px;
     padding: 10px;
     width: 250px;
@@ -115,6 +120,12 @@ html, body {
     box-shadow: var(--box-shadow);
 }
 
+.backButton {
+    width: 100px;
+    background-color: rgba(0, 0, 0, .50);
+    margin-top: 0px;
+    float: right;
+}
 .characterInfo {
     list-style: none;
     padding-left: 0px;

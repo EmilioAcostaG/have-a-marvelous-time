@@ -97,18 +97,18 @@ $(".characterBox").click(function (event) {
     characterClicked = event.currentTarget.classList[1];
 });
 
-// Get clicked character onto Profile page
-function getClickedCharacter(characterClicked) {
-  characterClicked = localStorage.getItem("characterClicked");
-  console.log("character:", characterClicked);
-};
-
 // Handle redirect to profile on click
 $(".characterBox").click(function (event) {
     console.log(characterClicked);
     localStorage.setItem("characterClicked", characterClicked);
     window.location.replace("./profile.html");
 });
+
+// Get clicked character onto Profile page
+function getClickedCharacter(characterClicked) {
+  characterClicked = localStorage.getItem("characterClicked");
+  console.log("character:", characterClicked);
+};
 
 // Get character info from Characters.json
 var favThing;
@@ -119,9 +119,9 @@ var somethingToDo;
 var readMore;
 // var city = "{CITY}"
 
-function getCharacterInfo() {
+function getCharacterInfo(characterClicked) {
    console.log("character clicked", characterClicked);
-    var characterInfoUrl = "assets/json/characters.json";
+    var characterInfoUrl = "./assets/json/characters.json";
     // console.log("Getting Characters");
 
     return fetch(characterInfoUrl)

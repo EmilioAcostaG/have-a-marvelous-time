@@ -5,7 +5,8 @@ var city;
 
 // These are used in Marvel.js, Characters.html, and Profile.html
 var statusCode;
-var characterName = "thor";
+var characterName;
+// var targetClass;
 var numComics;
 var characterDescription;
 var profileImage;
@@ -13,7 +14,7 @@ var backButton = $('.backButton');
 // console.log("image url", profileImage);
 
 // Get character info from Marvel
-function getCharacter() {
+function getCharacter(characterName) {
   var characterUrl = "https://gateway.marvel.com/v1/public/characters?hash=5ad57e2950ad170a8c45b38ddb6b3b01&ts=string&name=" + characterName + "&apikey=72b7c45c60389c825df0845f4afd3c85";
 
   return fetch(characterUrl)
@@ -29,21 +30,33 @@ function getCharacter() {
       console.log("image url", profileImage);
 
       // console.log("Code:", statusCode);
-      // console.log("Name:", characterName);
+      console.log("Name:", characterName);
       // console.log("#Comics:", numComics);
       // console.log("Desc:", characterDescription);
       $(document).ready(function(){
-          // $(".thor").css("background-image", "url(" + profileImage + ")");
-          $(".thor").attr("src", profileImage);
-          // console.log($(".profileImage").css("background-image", "url(" + profileImage + ")"));
-          $(".profileTitle").html(characterName.toUpperCase());
-          $(".characterDescription").html(characterDescription);
-          $(".numComics").html(numComics);
+        // $(".thor").css("background-image", "url(" + profileImage + ")");
+        // $(".thor").attr("src", profileImage);
+        // var passClass = "." + characterName.toLowerCase();
+        $("." + characterName.toLowerCase() + "BoxImage").attr("src", profileImage);
+        // console.log("test", passClass);
+        // console.log($(".profileImage").css("background-image", "url(" + profileImage + ")"));
+        $(".profileTitle").html(characterName.toUpperCase());
+        $(".characterDescription").html(characterDescription);
+        $(".numComics").html(numComics);
       });
   })
   .catch(error => console.log('error', error));
     
-} getCharacter();
+};
+
+getCharacter("thor", "thorBoxImage");
+getCharacter("groot", "grootBoxImage");
+getCharacter("hulk", "hulkBoxImage");
+
+// // Get profile images for all characters
+// function getImages() {
+// $(".hulk").attr("src", profileImage);
+// }; getImages();
 
 
 function autoFilling() {

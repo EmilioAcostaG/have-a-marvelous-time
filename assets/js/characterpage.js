@@ -15,5 +15,10 @@ $(".characterBox").click(function (event) {
 $(".characterBox").click(function (event) {
     var characterClicked = event.currentTarget.classList[1];
     console.log(characterClicked);
-    window.location.replace("/Users/makeithappenmike/Documents/BootCamp/have-a-marvelous-time/characters.html");
+    window.location.replace("./profile");
 });
+
+// $(".profileImage").attr("src", profileImage);
+// console.log("image url", profileImage);
+
+// $(".profileImage").css("background-image", "url(" + profileImage + ")");

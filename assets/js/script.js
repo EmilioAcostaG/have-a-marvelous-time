@@ -78,7 +78,11 @@ citySearchBtn.on('click', function() {
   var city = citySearchInput.val();
   citySearchInput.val('');
 
-  changeCityBtn.html(city);
+  if (city) {
+    changeCityBtn.html(city);
+  } else {
+    changeCityBtn.html("SELECT CITY")
+  };
 
   $(".modal").removeClass("is-active");
   $("nav").css("display", "block");

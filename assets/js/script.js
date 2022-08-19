@@ -16,8 +16,12 @@ var characterClicked;
 
 // Get character info from Marvel
 function getCharacter(characterName) {
-  //var characterUrl = "https://gateway.marvel.com/v1/public/characters?hash=5ad57e2950ad170a8c45b38ddb6b3b01&ts=string&name=" + characterName + "&apikey=72b7c45c60389c825df0845f4afd3c85";
+
+  // var characterUrl = "https://gateway.marvel.com/v1/public/characters?hash=5ad57e2950ad170a8c45b38ddb6b3b01&ts=string&name=" + characterName + "&apikey=72b7c45c60389c825df0845f4afd3c85";
+
   var characterUrl = "https://gateway.marvel.com/v1/public/characters?hash=46493b12f449dd19a8d6f3e9482602b8&ts=1&name=" + characterName + "&apikey=86db0495a9e60056ebd9ecda528d455d";
+  
+
   return fetch(characterUrl)
   .then((characterResponse) => {
       return characterResponse.json();
@@ -27,6 +31,7 @@ function getCharacter(characterName) {
       numComics = characterResponse.data.results[0].comics.available;
       characterDescription = characterResponse.data.results[0].description;
       profileImage = characterResponse.data.results[0].thumbnail.path + "." + characterResponse.data.results[0].thumbnail.extension;
+
       console.log(profileImage);
       characterListUl.append("<li class='character'>"+"<img src="+profileImage+" aria-label='character image'>"+"</li>");
   })

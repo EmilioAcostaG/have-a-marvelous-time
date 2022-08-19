@@ -38,6 +38,117 @@
       </ul>
     </section>
   </section>
+  <!-- Begin Profile -->
+        <section id="profile" class="profile">
+            <!-- Begin Profile Image and Bio -->
+            <section class="profileTop">
+                <!-- Profile Image -->
+                <section class="profileItem"><img class="profileImage" src="" aria-label="character image"/></section>
+                <!-- Bio -->
+                <section class="profileText profileInfo profileItem">
+                    <button class="backButton button">BACK</i></button>
+                    <ul class="characterInfo">
+                        <!-- Replaces NAME dynamically from Marvel API -->
+                        <li><h2 class="profileTitle">NAME</h2></li>
+                        <!-- Replaces Description dynamically from Marvel API -->
+                        <li class="characterDescription">DESCRIPTION</li>
+                        <!-- Link to BIO dynamically from Marvel API -->
+                        <li><a class="readMore" href="https://www.marvel.com/" target="_blank">Read More <i class="fa-solid fa-chevron-right" style="font-size:1em;color:000;"></i></a></li>
+                        <hr>
+                        <!-- Replaces to #COMICS dynamically from Marvel API -->
+                        <li><strong># OF COMICS:</strong> <span class="numComics"></span></li>
+                        <!-- Replaces FAVTHING, FAVMEAL, and HOBBIES dynamically from characters.json -->
+                        <li><strong>FAVORITE THING TO DO:</strong> <span class="favThing">{FAVTHING}</span></li>
+                        <li><strong>FAVORITE MEAL:</strong> <span class="favMeal">{FAVMEAL}</span></li>
+                        <li><strong>HOBBIES:</strong> <span class="hobbies">{HOBBIES}</span></li>
+                    </ul>
+                    <!-- TODO: Enable search functionality -->
+                    <button data-target="#modal" id="changeCity" class="button characterPageButton">SELECT CITY</button>
+                </section>
+            </section>
+            <!-- Begin Recommendations and Map -->
+            <section class="profileBottom">
+                <!-- Recommendations -->
+                <section class="profileText profileRecs profileItem">
+                    <ul class="characterInfo">
+                        <!-- TODO: Replace CITY dynamically from Input -->
+                        <li><h2 class="recsTitle">WHAT WE RECOMMEND FOR <span class="city">{CITY}</span></h2></li>
+                        <!-- TODO: Replace PLACE and WHY WE RECOMMEND IT dynamically from characters.json -->
+                        <li><strong>FOR SOMETHING TO EAT: </strong><span class="toEat">{PLACE}, {PLACE}, {PLACE}</li></span></li>
+                        <li><strong>FOR SOMETHING TO DO: </strong><span class="toDo">{PLACE}</li></span></li>
+                        <li>
+                            <strong>WHY WE RECOMMEND IT:</strong>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat quis nostrud exercitation sed.
+                            <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat quis nostrud exercitation sed.   
+                        </li>
+                    </ul>
+                </section>
+                <!-- Map -->
+                <!-- TODO: Replace PARKS and ATLANTA with PLACE and CITY -->
+                <!-- TODO: Conceal API Key -->
+                <section class="profileMap profileItem resp-container">
+                    <!-- <iframe class="resp-iframe" width="600" height="450" style="border:0" loading="lazy" allowfullscreen
+                    src="https://www.google.com/maps/embed/v1/search?q=parks%20near%20Boston,MA,USA&key=AIzaSyDIAS6wopAuJKcmpYxEYnHXuXriBwMuew0"></iframe> -->
+                </section>
+            </section>
+        </section>
+        <!-- Begin profile section -->
+        <!-- Begin Profile -->
+        <section id="profile" class="profile">
+          <!-- Begin Profile Image and Bio -->
+          <section class="profileTop">
+              <!-- Profile Image -->
+              <section class="profileItem"><img class="profileImage" src="" aria-label="character image"/></section>
+              <!-- Bio -->
+              <section class="profileText profileInfo profileItem">
+                  <button class="backButton button">BACK</i></button>
+                  <ul class="characterInfo">
+                      <!-- Replaces NAME dynamically from Marvel API -->
+                      <li><h2 class="profileTitle">NAME</h2></li>
+                      <!-- Replaces Description dynamically from Marvel API -->
+                      <li class="characterDescription">DESCRIPTION</li>
+                      <!-- Link to BIO dynamically from Marvel API -->
+                      <li><a class="readMore" href="https://www.marvel.com/" target="_blank">Read More <i class="fa-solid fa-chevron-right" style="font-size:1em;color:000;"></i></a></li>
+                      <hr>
+                      <!-- Replaces to #COMICS dynamically from Marvel API -->
+                      <li><strong># OF COMICS:</strong> <span class="numComics"></span></li>
+                      <!-- Replaces FAVTHING, FAVMEAL, and HOBBIES dynamically from characters.json -->
+                      <li><strong>FAVORITE THING TO DO:</strong> <span class="favThing">{FAVTHING}</span></li>
+                      <li><strong>FAVORITE MEAL:</strong> <span class="favMeal">{FAVMEAL}</span></li>
+                      <li><strong>HOBBIES:</strong> <span class="hobbies">{HOBBIES}</span></li>
+                  </ul>
+                  <!-- TODO: Enable search functionality -->
+                  <button data-target="#modal" id="changeCity" class="button characterPageButton">SELECT CITY</button>
+              </section>
+          </section>
+          <!-- Begin Recommendations and Map -->
+          <section class="profileBottom">
+              <!-- Recommendations -->
+              <section class="profileText profileRecs profileItem">
+                  <ul class="characterInfo">
+                      <!-- TODO: Replace CITY dynamically from Input -->
+                      <li><h2 class="recsTitle">WHAT WE RECOMMEND FOR <span class="city">{CITY}</span></h2></li>
+                      <!-- TODO: Replace PLACE and WHY WE RECOMMEND IT dynamically from characters.json -->
+                      <li><strong>FOR SOMETHING TO EAT: </strong><span class="toEat">{PLACE}, {PLACE}, {PLACE}</li></span></li>
+                      <li><strong>FOR SOMETHING TO DO: </strong><span class="toDo">{PLACE}</li></span></li>
+                      <li>
+                          <strong>WHY WE RECOMMEND IT:</strong>
+                          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat quis nostrud exercitation sed.
+                          <p>
+                          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat quis nostrud exercitation sed.   
+                      </li>
+                  </ul>
+              </section>
+              <!-- Map -->
+              <!-- TODO: Replace PARKS and ATLANTA with PLACE and CITY -->
+              <!-- TODO: Conceal API Key -->
+              <section class="profileMap profileItem resp-container">
+                  <!-- <iframe class="resp-iframe" width="600" height="450" style="border:0" loading="lazy" allowfullscreen
+                  src="https://www.google.com/maps/embed/v1/search?q=parks%20near%20Boston,MA,USA&key=AIzaSyDIAS6wopAuJKcmpYxEYnHXuXriBwMuew0"></iframe> -->
+              </section>
+          </section>
+      </section>
   </main>
 
 <!-- modal card-->

@@ -53,6 +53,14 @@ body {
     max-height: 200px;
 }
 
+.navTitleLP {
+    margin-top: 400px;
+}
+
+.directionsTitle {
+    font-weight: bold;
+}
+
 #modal-button {
     font-size: 2em;
     /* margin-top: 400px; */
@@ -98,7 +106,7 @@ body {
 }
 
 .characters {
-    visibility: hidden;
+    /* visibility: hidden; */
     position: absolute;
     height: 100vh;
     width: 100%;
@@ -124,7 +132,7 @@ nav {
     display: flex;
     justify-content: center;
     align-content: center;
-    display: visible;
+    /* display: none; */
 }
 
 

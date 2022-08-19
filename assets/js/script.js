@@ -81,7 +81,7 @@ citySearchBtn.on('click', function() {
   changeCityBtn.html(city);
 
   $(".modal").removeClass("is-active");
-  $("nav").css("display", "none");
+  $("nav").css("display", "block");
   $(".characters").css("visibility", "visible");
   $(".landing-page").css("visibility", "hidden");
 });

@@ -61,6 +61,20 @@ body {
     font-weight: bold;
 }
 
+.directionsList {
+    font-size: 1.2em;
+    margin-bottom: 25px;
+}
+
+.floatLeft {
+    float: left;
+}
+
+.searchingIn,
+.directionsSubTitle {
+    font-weight: bold;
+}
+
 #modal-button {
     font-size: 2em;
     /* margin-top: 400px; */
@@ -81,6 +95,10 @@ body {
     border: none;
     box-shadow: var(--box-shadow);
     cursor: pointer;
+}
+
+.characterPageButton {
+    min-width: 200px;
 }
 
 .modal-card-title {

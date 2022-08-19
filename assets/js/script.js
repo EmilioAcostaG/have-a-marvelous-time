@@ -22,20 +22,20 @@ function getCharacter(characterName) {
   var characterUrl = "https://gateway.marvel.com/v1/public/characters?hash=46493b12f449dd19a8d6f3e9482602b8&ts=1&name=" + characterName + "&apikey=86db0495a9e60056ebd9ecda528d455d";
   
 
-  return fetch(characterUrl)
-  .then((characterResponse) => {
-      return characterResponse.json();
-  })
-  .then((characterResponse) => {
-      characterName = characterResponse.data.results[0].name;
-      numComics = characterResponse.data.results[0].comics.available;
-      characterDescription = characterResponse.data.results[0].description;
-      profileImage = characterResponse.data.results[0].thumbnail.path + "." + characterResponse.data.results[0].thumbnail.extension;
+  // return fetch(characterUrl)
+  // .then((characterResponse) => {
+  //     return characterResponse.json();
+  // })
+  // .then((characterResponse) => {
+  //     characterName = characterResponse.data.results[0].name;
+  //     numComics = characterResponse.data.results[0].comics.available;
+  //     characterDescription = characterResponse.data.results[0].description;
+  //     profileImage = characterResponse.data.results[0].thumbnail.path + "." + characterResponse.data.results[0].thumbnail.extension;
 
-      console.log(profileImage);
-      characterListUl.append("<li class='character'>"+"<img src="+profileImage+" aria-label='character image'>"+"</li>");
-  })
-  .catch(error => console.log('error', error));
+  //     console.log(profileImage);
+  //     characterListUl.append("<li class='character'>"+"<img src="+profileImage+" aria-label='character image'>"+"</li>");
+  // })
+  // .catch(error => console.log('error', error));
     
 };
       
@@ -81,6 +81,7 @@ citySearchBtn.on('click', function() {
   changeCityBtn.html(city);
 
   $(".modal").removeClass("is-active");
+  $("nav").css("display", "none");
   $(".characters").css("visibility", "visible");
   $(".landing-page").css("visibility", "hidden");
 });

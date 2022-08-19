@@ -18,11 +18,12 @@ main {
 
 body {
     height: 100%;
+    background: radial-gradient(circle at center, rgb(86, 86, 86), rgb(0, 0, 0) 100%);
 }
 
 .navTitle {
     text-shadow: 2px 2px 4px #000000;
-    font-size: 4em;
+    font-size: 5em;
     font-weight: bold;
     display: flex;
     justify-content: center;
@@ -30,14 +31,31 @@ body {
     color: white;
 }
 
-.navTitle > img {
+.navTitle  > img {
     height: fit-content;
     position: relative;
 }
 
+.navTitleLP {
+    text-shadow: 2px 2px 4px #000000;
+    font-size: 3em;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    margin-bottom: 0px;
+}
+
+.navTitleLP > img {
+    height: fit-content;
+    position: relative;
+    max-height: 200px;
+}
+
 #modal-button {
     font-size: 2em;
-    margin-top: 400px;
+    /* margin-top: 400px; */
 }
 
 .button {
@@ -106,10 +124,11 @@ nav {
     display: flex;
     justify-content: center;
     align-content: center;
+    display: visible;
 }
 
 
-@media (min-width: 1000px) {
+/* @media (min-width: 1000px) {
     .navTitle {
         text-shadow: 2px 2px 4px #000000;
         font-size: 3em;
@@ -125,4 +144,4 @@ nav {
         position: relative;
         scale: .75;
     }
-}
+} */

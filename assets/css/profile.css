@@ -47,7 +47,7 @@ html, body {
     font-size: 1.5em;
 }
 
-.navTitle {
+/* .navTitle {
     text-shadow: 2px 2px 4px #000000;
     font-size: 4em;
     display: flex;
@@ -58,7 +58,7 @@ html, body {
 .navTitle > img {
     max-height: 200px;
     position: relative;
-}
+} */
 
 .profileTop, .profileBottom {
     display: flex;

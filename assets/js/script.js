@@ -2,6 +2,8 @@ var modalButtonEl = $('#modal-button');
 var citySearchBtn = $('#citySearchBtn');
 var citySearchInput = $('#cities-autocomplete');
 var city;
+var changeCityBtn = $('#changeCity');
+var characterListUl = $("#characterList");
 
 // These are used in Marvel.js, Characters.html, and Profile.html
 var statusCode;
@@ -19,6 +21,7 @@ function getCharacter(characterName) {
 
   var characterUrl = "https://gateway.marvel.com/v1/public/characters?hash=46493b12f449dd19a8d6f3e9482602b8&ts=1&name=" + characterName + "&apikey=86db0495a9e60056ebd9ecda528d455d";
   
+
   return fetch(characterUrl)
   .then((characterResponse) => {
       return characterResponse.json();
@@ -28,84 +31,87 @@ function getCharacter(characterName) {
       numComics = characterResponse.data.results[0].comics.available;
       characterDescription = characterResponse.data.results[0].description;
       profileImage = characterResponse.data.results[0].thumbnail.path + "." + characterResponse.data.results[0].thumbnail.extension;
-      $(document).ready(function(){
-        $("." + characterName.replace(/\s/g, '').replace(/"/g, "").replace(/'/g, "").replace(/\(|\)/g, "").toLowerCase() + "BoxImage").attr("src", profileImage);
-        $(".profileTitle").html(characterName.toUpperCase());
-        $(".characterDescription").html(characterDescription);
-        $(".numComics").html(numComics);
-      });
+
+      console.log(profileImage);
+      characterListUl.append("<li class='character'>"+"<img src="+profileImage+" aria-label='character image'>"+"</li>");
   })
   .catch(error => console.log('error', error));
     
 };
-
-getCharacter("thor", "thorBoxImage");
-getCharacter("groot", "grootBoxImage");
-getCharacter("hulk", "hulkBoxImage");
-getCharacter("black widow", "blackwidowBoxImage");
-getCharacter("scarlet witch", "hulkBoxImage");
-getCharacter("iron man", "ironmanBoxImage");
-getCharacter("doctor strange", "doctorstrangeBoxImage");
-getCharacter("captain america", "captainamericaBoxImage");
-getCharacter("captain marvel (carol danvers)", "captainmarvelcaroldanversImage");
-getCharacter("gamora", "gamoraBoxImage");
-getCharacter("black panther", "blackpantherBoxImage");
-getCharacter("spider-man (peter parker)", "spider-manpeterparkerImage");
+      
+// getCharacter("thor", "thorBoxImage");
+// getCharacter("groot", "grootBoxImage");
+// getCharacter("hulk", "hulkBoxImage");
+// getCharacter("black widow", "blackwidowBoxImage");
+// getCharacter("scarlet witch", "hulkBoxImage");
+// getCharacter("iron man", "ironmanBoxImage");
+// getCharacter("doctor strange", "doctorstrangeBoxImage");
+// getCharacter("captain america", "captainamericaBoxImage");
+// getCharacter("captain marvel (carol danvers)", "captainmarvelcaroldanversImage");
+// getCharacter("gamora", "gamoraBoxImage");
+// getCharacter("black panther", "blackpantherBoxImage");
+// getCharacter("spider-man (peter parker)", "spider-manpeterparkerImage");
 
 function autoFilling() {
     var input = document.getElementById("cities-autocomplete");
     var autocomplete = new google.maps.places.Autocomplete(input);
 }
 
-
 modalButtonEl.on('click', function() {
-  console.log("modal will pop up");
-
-  var target = $(this).data("target");
   $(".modal").addClass("is-active");
+});
 
-} );
-
-$(".model-close").click(function() {
-  console.log("closed modal")
- 
+$(".modal-close").click(function() {
   $(".modal").removeClass("is-active");
-})
+});
+
+function fetchCharactersAndDisplay() {
+  $.getJSON("./assets/json/characters.json", function(data) {
+    console.log(data);
+    data.forEach(element => {
+      getCharacter(element.Character);
+    });
+  });
+}
 
 citySearchBtn.on('click', function() {
-  city = citySearchInput.val();
-  console.log(city);
+  var city = citySearchInput.val();
   citySearchInput.val('');
-  window.location.replace("./characters.html");
-})
+
+  changeCityBtn.html(city);
+
+  $(".modal").removeClass("is-active");
+  $(".characters").css("visibility", "visible");
+  $(".landing-page").css("visibility", "hidden");
+});
 
 backButton.on('click', function() {
   console.log(city);
   window.location.replace("./characters.html");
 })
 
-// These need to be passed into functions? All were on characterpage.js ==> consolodating!
-var changeCityBtn = $('#changeCity');
-console.log("city", city);
-changeCityBtn.val(city);
-
-// Handle change city button on character and profile pages
-$(".changeCityButton").click(function (event) {
-    console.log("click");
+changeCityBtn.on('click', function() {
+  $(".modal").addClass("is-active");
 });
+
+characterListUl.on("click", ".character", function() {
+  console.log("clicked");
+  characterClicked = event.currentTarget.classList[1];
+  localStorage.setItem("characterClicked", characterClicked);
+  window.location.replace("./profile.html");
+});
+
+fetchCharactersAndDisplay();
 
 // Handle click function on character images
-$(".characterBox").click(function (event) {
-    console.log("click");
-    characterClicked = event.currentTarget.classList[1];
-});
+// $(".characterBox").click(function (event) {
+//     console.log("click");
+// });
 
-// Handle redirect to profile on click
-$(".characterBox").click(function (event) {
-    console.log(characterClicked);
-    localStorage.setItem("characterClicked", characterClicked);
-    window.location.replace("./profile.html");
-});
+// // Handle redirect to profile on click
+// $(".characterBox").click(function (event) {
+//     console.log(characterClicked);
+// });
 
 // Get clicked character onto Profile page
 function getClickedCharacter(characterClicked) {

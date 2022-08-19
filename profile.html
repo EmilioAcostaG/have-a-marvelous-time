@@ -8,8 +8,8 @@
     <!-- Font Awesome for arrow icons -->
     <script src="https://kit.fontawesome.com/be3a01c72e.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./assets/css/reset.css">
-    <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="stylesheet" href="./assets/css/profile.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
     <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"> -->
 </head>
 <body onload="getClickedCharacter()">
@@ -26,7 +26,7 @@
                 <section class="profileItem"><img class="profileImage" src="" aria-label="character image"/></section>
                 <!-- Bio -->
                 <section class="profileText profileInfo profileItem">
-                    <button class="backButton">BACK</i></button>
+                    <button class="backButton button">BACK</i></button>
                     <ul class="characterInfo">
                         <!-- Replaces NAME dynamically from Marvel API -->
                         <li><h2 class="profileTitle">NAME</h2></li>
@@ -43,7 +43,7 @@
                         <li><strong>HOBBIES:</strong> <span class="hobbies">{HOBBIES}</span></li>
                     </ul>
                     <!-- TODO: Enable search functionality -->
-                    <button class="changeCityButton">CHANGE CITY <i class="fa-solid fa-chevron-down" style='font-size:1em;color:000;'></i></button>
+                    <button class="changeCityButton button" data-target="#modal">CHANGE CITY <i class="fa-solid fa-chevron-down" style='font-size:1em;color:000;'></i></button>
                 </section>
             </section>
             <!-- Begin Recommendations and Map -->

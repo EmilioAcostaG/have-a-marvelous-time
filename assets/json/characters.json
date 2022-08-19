@@ -1,6 +1,6 @@
 [
     {
-        "Character": "Spiderman",
+        "Character": "Spider-Man (Peter Parker)",
         "Place": ["Escape Rooms", "Gymnastics Classes", "Movies"],
         "Hobby": "Science Experiments",
         "Restaraunts": ["Pizza, Hot dogs,"],
@@ -8,7 +8,7 @@
         "ReadMore": "https://www.marvel.com/characters/spider-man-peter-parker"
     },
     {
-        "Character": "Dr Strange",
+        "Character": "Doctor Strange",
         "Place": ["Artifact Museums", "Libraries", "Medical Science Lectures"],
         "Hobby": "Reading Books",
         "Restaraunts": ["Michelin Star Restaurants", "Fine Dining"],
@@ -88,7 +88,7 @@
         "ReadMore": "https://www.marvel.com/characters/hulk-bruce-banner"
     },
     {
-        "Character": "Captain Marvel",
+        "Character": "Captain Marvel (Carol Danvers)",
         "Place": ["Coffee Shops", "Aviation Museums", "Comedy Clubs"],
         "Hobby": "Aviation",
         "Restaraunts": ["Sushi", "Cafes"],

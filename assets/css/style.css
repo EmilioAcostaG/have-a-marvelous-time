@@ -21,6 +21,8 @@ html, body {
     background: radial-gradient(circle at center, rgb(86, 86, 86), rgb(0, 0, 0) 100%);
 }
 
+/* Begin NAV CSS */
+
 nav {
     text-align: center;
     width: 100%;
@@ -70,6 +72,8 @@ nav {
     margin-top: 400px;
 }
 
+/* BEGIN CHARACTER PAGE CSS */
+
 .directionsTitle {
     font-weight: bold;
 }
@@ -79,8 +83,29 @@ nav {
     margin-bottom: 25px;
 }
 
-.floatLeft {
-    float: left;
+.directions {
+    text-shadow: 2px 2px 4px #000000;
+    color: var(--color);
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.directions > h1 {
+    font-size: 2.5em;
+}
+
+.directions > h2 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
+.directions > p {
+    font-size: 1em;
+}
+
+.directions > span {
+    padding-right: 20px;
 }
 
 .searchingIn,
@@ -144,6 +169,54 @@ nav {
     width: 100%;
     top: 0;
     background: radial-gradient(circle at center, rgb(86, 86, 86), rgb(0, 0, 0) 100%);
+}
+
+.character:hover {
+    cursor: pointer;
+}
+
+.changeCityButton {
+    padding: 10px;
+    width: 250px;
+    background-color: rgb(155, 34, 34);
+    color: var(--color);
+    border: none;
+    font-size: 1em;
+    box-shadow: var(--box-shadow);
+}
+
+.characterList {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+.character {
+    position: relative;
+    color: var(--color);
+    margin: 10px 10px;
+    width: 30%;
+    text-align: center;
+    vertical-align: middle;
+    background-color: rgb(155, 34, 34);
+    box-shadow: var(--box-shadow);
+    border-radius: 5px;
+}
+
+.character img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.character:after {
+    content: "";
+    display: block;
+    padding-bottom: 70%;
 }
 
 .landing-page {

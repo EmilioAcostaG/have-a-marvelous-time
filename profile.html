@@ -15,9 +15,9 @@
 <body onload="getClickedCharacter()">
     <section id="mainProfile" class="main">
         <!-- Begin Nav -->
-        <section id="nav" class="nav">
+        <nav>
             <h1 class="navTitle">HAVE A<img src="assets/images/marvel_placeholder.png" aria-label="Marvel logo"/>OUS TIME</h1>
-        </section>
+        </nav>
         <!-- Begin Profile -->
         <section id="profile" class="profile">
             <!-- Begin Profile Image and Bio -->
@@ -43,7 +43,7 @@
                         <li><strong>HOBBIES:</strong> <span class="hobbies">{HOBBIES}</span></li>
                     </ul>
                     <!-- TODO: Enable search functionality -->
-                    <button class="changeCityButton button" data-target="#modal">CHANGE CITY <i class="fa-solid fa-chevron-down" style='font-size:1em;color:000;'></i></button>
+                    <button data-target="#modal" id="changeCity" class="button characterPageButton">SELECT CITY</button>
                 </section>
             </section>
             <!-- Begin Recommendations and Map -->

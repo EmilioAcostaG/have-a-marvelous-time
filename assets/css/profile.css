@@ -2,6 +2,7 @@
     --border: 1px solid white;
     --color: white;
     --box-shadow: 3px 3px 10px rgba(0, 0, 0, .75);
+    --marvel-red: rgb(155, 34, 34);
 }
 
 * {
@@ -113,20 +114,16 @@ html, body {
     padding: 10px;
     width: 250px;
     /* border-radius: 5px; */
-    background-color: rgb(155, 34, 34);
-    color: var(--color);
-    border: none;
-    font-size: 1em;
-    box-shadow: var(--box-shadow);
+
 }
 
 .backButton {
     width: 100px;
-    background-color: rgba(0, 0, 0, .50);
     margin-top: 0px;
     float: right;
     cursor: pointer;
 }
+
 .characterInfo {
     list-style: none;
     padding-left: 0px;
@@ -140,13 +137,13 @@ html, body {
 .place,
 .toEat,
 .toDo {
-    color: red;
+    color: var(--marvel-red);
 }
 
 a,
 a:hover,
 a:visited {
-    color: red;
+    color: var(--marvel-red);
     font-style: italic;
 }
 

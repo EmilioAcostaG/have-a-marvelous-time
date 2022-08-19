@@ -2,6 +2,7 @@
     --border: 1px solid white;
     --color: white;
     --box-shadow: 3px 3px 10px rgba(0, 0, 0, .75);
+    --marvel-red: rgb(155, 34, 34);
 }
 
 * {
@@ -22,6 +23,7 @@ body {
 .navTitle {
     text-shadow: 2px 2px 4px #000000;
     font-size: 4em;
+    font-weight: bold;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -34,8 +36,43 @@ body {
 }
 
 #modal-button {
-    background-color: rgb(155, 34, 34);
     font-size: 2em;
+    margin-top: 400px;
+}
+
+.button {
+    background-color: var(--marvel-red);
+    color: white;
+    font-weight: bold;
+    border: none;
+    box-shadow: var(--box-shadow);
+}
+
+.button:hover {
+    background-color: rgb(129, 22, 22);
+    color: white;
+    font-weight: bold;
+    border: none;
+    box-shadow: var(--box-shadow);
+    cursor: pointer;
+}
+
+.modal-card-title {
+    text-align: center;
+    color: white;
+    font-weight: bold;
+}
+
+.modal-card-body {
+    background-color: var(--marvel-red);
+}
+.modal-card-foot,
+.modal-card-head {
+    background-color: var(--marvel-red);
+}
+
+.is-danger {
+    background-color: black;
 }
 
 #cities-autocomplete {
@@ -73,5 +110,19 @@ nav {
 
 
 @media (min-width: 1000px) {
-
+    .navTitle {
+        text-shadow: 2px 2px 4px #000000;
+        font-size: 3em;
+        font-weight: bold;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+    }
+    
+    .navTitle > img {
+        height: fit-content;
+        position: relative;
+        scale: .75;
+    }
 }

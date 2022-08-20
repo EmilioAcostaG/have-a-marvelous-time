@@ -148,10 +148,12 @@ characterListUl.on("click", ".character", function(event) {
   cityCharacterInfo.html(city.toUpperCase());
 
   var toDoCharacterInfo = $("#toDo-character-info");
+  toDoCharacterInfo.html('');
   characters[index].toDo.forEach(aDoing => {
     toDoCharacterInfo.append("<li class='toDoSearch'><a href=''>"+ aDoing +"</a></li>");
   });
   var toEatCharacterInfo = $("#toEat-character-info");
+  toEatCharacterInfo.html('');
   characters[index].toEat.forEach(aEating => {
     toEatCharacterInfo.append("<li class='toEatSearch'><a href=''>"+ aEating +"</a></li>");
   });

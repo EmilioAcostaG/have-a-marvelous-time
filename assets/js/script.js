@@ -26,7 +26,7 @@ function getCharacter(index, name) {
       characters[index]['description'] = characterResponse.data.results[0].description;
       var imageSrc = characterResponse.data.results[0].thumbnail.path + "." + characterResponse.data.results[0].thumbnail.extension;
       characters[index]['image'] = imageSrc;
-      characterListUl.append("<li class='character' data-index=" + index + "><img src=" + imageSrc+" >"+"</li>");
+      characterListUl.append("<li class='character' data-index=" + index + "><img src=" + imageSrc + " >" + "</li>");
   })
   .catch(error => console.log('error', error));
 };
@@ -66,6 +66,11 @@ citySearchBtn.on('click', function() {
     city = citySearchInput.val();
     city = city.slice(0,-5);
     citySearchInput.val('');
+    // If CITY is blank or null, show defualt of "SELECT CITY"
+    if (!city || city == null) {
+    city = "SELECT CITY";
+    };
+    city = city.toUpperCase();
     changeCityBtn1.html(city);
     changeCityBtn2.html(city);
     $(".characters").css("display", "block");
@@ -128,25 +133,27 @@ characterListUl.on("click", ".character", function(event) {
   console.log(event.currentTarget.dataset.index);
   var characterInfoTopUl = $("#character-info-top");
   characterInfoTopUl.html("");
-  characterInfoTopUl.append("<li><h2 class='profileTitle'>" + characters[index].character + "</h2></li>");
+  characterInfoTopUl.append("<li><h2 class='profileTitle'>" + characters[index].character.toUpperCase() + "</h2></li>");
   characterInfoTopUl.append("<li class='characterDescription'>" + characters[index].description + "</li>")
-  characterInfoTopUl.append("<li><a class='readMore' href="+ characters[index].readMore +" target='_blank'>Read More <i class='fa-solid fa-chevron-right' style='font-size:1em;color:000;'></i></a></li>")
+  characterInfoTopUl.append("<li><a class='readMore' href="+ characters[index].readMore +" target='_blank'>Read More</a></li>")
   characterInfoTopUl.append("<hr>");
-  characterInfoTopUl.append("<li><strong># OF COMICS:</strong> <span class='numComics'>" + characters[index].comics + "</span></li>");
-  characterInfoTopUl.append("<li><strong>FAVORITE THING TO DO:</strong> <span class='favThing'>"+ characters[index].favThing +"</span></li>");
-  characterInfoTopUl.append("<li><strong>FAVORITE MEAL:</strong> <span class='favMeal'>"+ characters[index].favMeal +"</span></li>");
-  characterInfoTopUl.append("<li><strong>HOBBIES:</strong> <span class='hobbies'>"+ characters[index].hobbies +"</span></li>");
+  characterInfoTopUl.append("<li><strong class='characterDescriptionSub'># OF COMICS:</strong> <span class='numComics'>" + characters[index].comics + "</span></li>");
+  characterInfoTopUl.append("<li><strong class='characterDescriptionSub'>FAVORITE THING TO DO:</strong> <span class='favThing'>"+ characters[index].favThing +"</span></li>");
+  characterInfoTopUl.append("<li><strong class='characterDescriptionSub'>FAVORITE MEAL:</strong> <span class='favMeal'>"+ characters[index].favMeal +"</span></li>");
+  characterInfoTopUl.append("<li><strong class='characterDescriptionSub'>HOBBIES:</strong> <span class='hobbies'>"+ characters[index].hobbies +"</span></li>");
   var profileImage = $('#profileImage');
   profileImage.attr("src", characters[index].image);
   
   var cityCharacterInfo = $("#city-character-info");
-  cityCharacterInfo.html(city);
+  cityCharacterInfo.html(city.toUpperCase());
 
   var toDoCharacterInfo = $("#toDo-character-info");
+  toDoCharacterInfo.html('');
   characters[index].toDo.forEach(aDoing => {
     toDoCharacterInfo.append("<li class='toDoSearch'><a href=''>"+ aDoing +"</a></li>");
   });
   var toEatCharacterInfo = $("#toEat-character-info");
+  toEatCharacterInfo.html('');
   characters[index].toEat.forEach(aEating => {
     toEatCharacterInfo.append("<li class='toEatSearch'><a href=''>"+ aEating +"</a></li>");
   });

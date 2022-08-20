@@ -14,12 +14,15 @@ main {
     margin: auto;
     height: 100%;
     text-align: center;
+    background: radial-gradient(circle at center, rgb(86, 86, 86), rgb(0, 0, 0) 100%);
 }
 
 html, body {
     height: 100%;
     background: radial-gradient(circle at center, rgb(86, 86, 86), rgb(0, 0, 0) 100%);
 }
+
+/* Begin NAV CSS */
 
 nav {
     text-align: center;
@@ -70,6 +73,8 @@ nav {
     margin-top: 400px;
 }
 
+/* BEGIN CHARACTER PAGE CSS */
+
 .directionsTitle {
     font-weight: bold;
 }
@@ -79,8 +84,29 @@ nav {
     margin-bottom: 25px;
 }
 
-.floatLeft {
-    float: left;
+.directions {
+    text-shadow: 2px 2px 4px #000000;
+    color: var(--color);
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.directions > h1 {
+    font-size: 2.5em;
+}
+
+.directions > h2 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
+.directions > p {
+    font-size: 1em;
+}
+
+.directions > span {
+    padding-right: 20px;
 }
 
 .searchingIn,
@@ -145,6 +171,54 @@ nav {
     background: radial-gradient(circle at center, rgb(86, 86, 86), rgb(0, 0, 0) 100%);
 }
 
+.character:hover {
+    cursor: pointer;
+}
+
+.changeCityButton {
+    padding: 10px;
+    width: 250px;
+    background-color: rgb(155, 34, 34);
+    color: var(--color);
+    border: none;
+    font-size: 1em;
+    box-shadow: var(--box-shadow);
+}
+
+.characterList {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+.character {
+    position: relative;
+    color: var(--color);
+    margin: 10px 10px;
+    width: 25%;
+    text-align: center;
+    vertical-align: middle;
+    background-color: rgb(155, 34, 34);
+    box-shadow: var(--box-shadow);
+    border-radius: 5px;
+}
+
+.character img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.character:after {
+    content: "";
+    display: block;
+    padding-bottom: 70%;
+}
+
 .landing-page {
     position: absolute;
     width: 100%;
@@ -160,31 +234,38 @@ nav {
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: space-between;
+    text-align: left;
 }
 
 .profileTitle {
     text-shadow: 2px 2px 4px #000000;
-    font-size: 2em;
+    font-size: 4em;
+    font-weight: bold;
 }
 
 .recsTitle {
     text-shadow: 2px 2px 4px #000000;
-    font-size: 1.5em;
+    font-size: 2.5em;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.toEat,
+.toDo {
+    margin-bottom: 20px;
 }
 
 .profileTop, .profileBottom {
     display: flex;
     justify-content: space-between;
-}
-
-.profileTop,
-.profileBottom {
     padding-bottom: 20px;
     padding-top: 20px;
 }
 
 .profileBottom {
     background-color: rgba(0, 0, 0, .50);
+    /* height: 1000px; */
+    position: relative;
 }
 
 .profileItem {
@@ -194,6 +275,7 @@ nav {
     width: 50%;
     vertical-align: middle;
     /* text-align: center; */
+    /* background-color: rgba(255, 255, 255, .1); */
 }
 
 .profileInfo {
@@ -208,7 +290,8 @@ nav {
     margin-left: 0px;
     /* min-width: 400px; */
     /* height: 100%; */
-    flex: 0 1 0;
+    flex: 1 1 0;
+    width: 100%;
     /* max-width: 500px; */
 }
 
@@ -218,6 +301,12 @@ nav {
     box-shadow: var(--box-shadow);
     border-radius: 15px 0px 0px 15px;
     margin-right: 0px;
+}
+
+.readMore,
+.readMore > a {
+    font-weight: bold;
+    color: red;
 }
 
 .changeCityButton,
@@ -244,7 +333,29 @@ nav {
 
 .characterInfo > li {
     margin-top: 15px;
+    color: var(--color);
+    margin-bottom: 20px;
 }
+
+.characterDescription {
+    font-size: 2em;
+}
+
+.characterDescriptionSub,
+.numComics,
+.favMeal,
+.favThing,
+.hobbies,
+.characterRecs,
+.toEat-character-info,
+.toDo-character-info,
+.toDoSearch {
+    font-size: 1.4em;
+}
+
+strong {
+    color: var(--color);
+ }
 
 .place,
 .toEat,
@@ -255,7 +366,7 @@ nav {
 a,
 a:hover,
 a:visited {
-    color: var(--marvel-red);
+    color: var(--color);
     font-style: italic;
 }
 

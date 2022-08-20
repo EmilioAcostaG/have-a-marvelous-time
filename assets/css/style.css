@@ -47,33 +47,6 @@ nav {
     padding-right: 10%;
 }
 
-/* .navTitle  > img {
-    height: fit-content;
-    position: relative;
-    max-height: 200px;
-} */
-
-/* .navTitleLP {
-    text-shadow: 2px 2px 4px #000000;
-    font-size: 3em;
-    font-weight: bold;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    margin-bottom: 0px;
-}
-
-.navTitleLP > img {
-    height: fit-content;
-    position: relative;
-    max-height: 200px;
-}
-
-.navTitleLP {
-    margin-top: 400px;
-} */
-
 /* BEGIN CHARACTER PAGE CSS */
 
 .directionsTitle {
@@ -390,39 +363,39 @@ a:visited {
 }
 
 @media (max-width: 1100px) {
-    /* .navTitle {
-        text-shadow: 2px 2px 4px #000000;
-        font-size: 3em;
-        font-weight: bold;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        color: white;
+    .navTitleLP {
+        margin-top: 35%;
     }
-    
-    .navTitle > img {
-        height: fit-content;
-        position: relative;
+
+    #modal-button {
+        font-size: 1.5em;
+    }
+
+    .modal-content {
         scale: .75;
-    } */
+    }
 }
 
-@media (max-width: 850px) {
-    /* .navTitle,
+@media (max-width: 650px) {
     .navTitleLP {
-        text-shadow: 2px 2px 4px #000000;
-        font-size: 2em;
-        font-weight: bold;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        color: white;
-    } */
-    
-    /* .navTitle > img,
-    .navTitleLP > img {
-        height: fit-content;
-        position: relative;
-        scale: .50;
+        margin-top: 45%;
     }
-} */
+
+    #modal-button {
+        font-size: 1.0em;
+    }
+}
+
+@media (max-width: 400px) {
+    .navTitleLP {
+        margin-top: 55%;
+    }
+
+    #modal-button {
+        font-size: .75em;
+    }
+
+    .modal-content {
+        scale: .75;
+    }
+}

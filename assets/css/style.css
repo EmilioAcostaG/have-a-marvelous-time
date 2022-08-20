@@ -372,7 +372,7 @@ a:visited {
 
     .profileItem {
         flex: 1 0 0;
-        margin: 10px;
+        margin-top: -20px;
         width: 100%;
         vertical-align: middle;
     }
@@ -385,7 +385,8 @@ a:visited {
     button,
     .profileTitle,
     .profileInfo,
-    .characterDescription {
+    .characterDescription,
+    .characterInfo {
         scale: .75;
     }
 
@@ -393,8 +394,7 @@ a:visited {
         margin-top: 0px;
     }
 
-    .profileTop,
-    .profileBottom {
+    .profileTop {
         flex-direction: column;
     }
 
@@ -402,6 +402,14 @@ a:visited {
     .characterDescription {
         width: 100%;
     }
+
+    .characterInfo > li {
+        margin-top: 15px;
+        color: var(--color);
+        margin-bottom: 20px;
+    }
+
+
 }
 
 @media (max-width: 650px) {
@@ -411,6 +419,19 @@ a:visited {
 
     #modal-button {
         font-size: 1.0em;
+    }
+}
+
+@media (max-width: 500px) {
+    .profileRecs {
+        width: 70%;
+    }
+
+    .profileItem {
+        flex: 1 1 0;
+        margin-top: -20px;
+        width: 100%;
+        vertical-align: middle;
     }
 }
 

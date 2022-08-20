@@ -79,10 +79,11 @@ citySearchBtn.on('click', function() {
     changeCityBtn2.html(city);
   };
 
+  var place = "park";
   var profileMap = $("#profileMap");
   profileMap.html("");
-  var place = "park";
   profileMap.append("<iframe class='resp-iframe' width='600' height='450' style='border:0' loading='lazy' allowfullscreen src='https://www.google.com/maps/embed/v1/search?q="+ place +"%20near%20"+ city +"&key=AIzaSyDIAS6wopAuJKcmpYxEYnHXuXriBwMuew0'></iframe>");
+
   $(".modal").removeClass("is-active");
   $("nav").css("display", "block");
 });
@@ -99,6 +100,26 @@ changeCityBtn1.on('click', function() {
 
 changeCityBtn2.on('click', function() {
   $(".modal").addClass("is-active");
+});
+
+
+var toDoCharacterInfo = $("#toDo-character-info");
+toDoCharacterInfo.on("click", ".toDoSearch", function(event) {
+  event.preventDefault();
+  var place = event.target.innerHTML;
+  var profileMap = $("#profileMap");
+  profileMap.html("");
+  profileMap.append("<iframe class='resp-iframe' width='600' height='450' style='border:0' loading='lazy' allowfullscreen src='https://www.google.com/maps/embed/v1/search?q="+ place +"%20near%20"+ city +"&key=AIzaSyDIAS6wopAuJKcmpYxEYnHXuXriBwMuew0'></iframe>");
+});
+
+var toEatCharacterInfo = $("#toEat-character-info");
+toEatCharacterInfo.on("click", ".toEatSearch", function(event) {
+  event.preventDefault();
+  var place = event.target.innerHTML;
+  var profileMap = $("#profileMap");
+  profileMap.html("");
+  profileMap.append("<iframe class='resp-iframe' width='600' height='450' style='border:0' loading='lazy' allowfullscreen src='https://www.google.com/maps/embed/v1/search?q="+ place +"%20near%20"+ city +"&key=AIzaSyDIAS6wopAuJKcmpYxEYnHXuXriBwMuew0'></iframe>");
+
 });
 
 characterListUl.on("click", ".character", function(event) {
@@ -118,11 +139,17 @@ characterListUl.on("click", ".character", function(event) {
   var profileImage = $('#profileImage');
   profileImage.attr("src", characters[index].image);
   
-  var characterInfoBtmUl = $("#character-info-btm");
-  characterInfoBtmUl.html("");
-  characterInfoBtmUl.append("<li><h2 class='recsTitle'>WHAT WE RECOMMEND FOR <span class='city'>"+ city +"</span></h2></li>");
-  characterInfoBtmUl.append("<li><strong>FOR SOMETHING TO EAT: </strong><span class='toEat'>"+ characters[index].toEat +"</li></span></li>");
-  characterInfoBtmUl.append("<li><strong>FOR SOMETHING TO DO: </strong><span class='toDo'>"+ characters[index].toDo +"</li></span></li>");
+  var cityCharacterInfo = $("#city-character-info");
+  cityCharacterInfo.html(city);
+
+  var toDoCharacterInfo = $("#toDo-character-info");
+  characters[index].toDo.forEach(aDoing => {
+    toDoCharacterInfo.append("<li class='toDoSearch'><a href=''>"+ aDoing +"</a></li>");
+  });
+  var toEatCharacterInfo = $("#toEat-character-info");
+  characters[index].toEat.forEach(aEating => {
+    toEatCharacterInfo.append("<li class='toEatSearch'><a href=''>"+ aEating +"</a></li>");
+  });
   
   $(".characters").css("display", "none");
   $(".landing-page").css("display", "none");

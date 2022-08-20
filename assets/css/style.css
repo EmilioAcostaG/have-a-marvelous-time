@@ -302,7 +302,8 @@ nav {
 
 .characterInfo {
     list-style: none;
-    padding-left: 0px;
+    padding-left: 10px;
+    padding-top: 10px;
     color: var(--color);
 }
 
@@ -310,6 +311,7 @@ nav {
     margin-top: 15px;
     color: var(--color);
     margin-bottom: 20px;
+    width: 100%;
 }
 
 .characterDescription {
@@ -363,6 +365,11 @@ a:visited {
 }
 
 @media (max-width: 1100px) {
+
+    .backButton {
+    margin-top: 50px;
+    }
+
     .navTitleLP {
         margin-top: 35%;
     }
@@ -387,16 +394,17 @@ a:visited {
     .directionsSubTitle,
     .directionsList,
     .searchingIn,
-    button,
-    .profileTitle,
-    .profileInfo,
-    .characterDescription,
-    .characterInfo {
+    button, {
         scale: .75;
     }
 
     .profileTitle {
         margin-top: 0px;
+        font-size: 3em;
+    }
+
+    .characterDescription {
+        font-size: 1.5em;
     }
 
     .profileTop {
@@ -422,6 +430,10 @@ a:visited {
         margin-top: 45%;
     }
 
+    .modal-content {
+        scale: .90;
+    }
+
     #modal-button {
         font-size: 1.0em;
     }
@@ -434,6 +446,11 @@ a:visited {
 @media (max-width: 600px) {
     .pac-container {
         max-width: 375px;
+    }
+
+    .recsTitle,
+    .profileTitle {
+        font-size: 2em;
     }
 }
 

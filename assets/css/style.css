@@ -261,16 +261,12 @@ nav {
 }
 
 .profileImage {
-    /* border: 0px 2px 2px 2px solid white; */
     box-shadow: var(--box-shadow);
     border-radius: 0px 15px 15px 0px;
     overflow: hidden;
     margin-left: 0px;
-    /* min-width: 400px; */
-    /* height: 100%; */
     flex: 1 1 0;
     width: 100%;
-    /* max-width: 500px; */
 }
 
 .profileMap {
@@ -372,6 +368,13 @@ a:visited {
 
     #modal-button {
         font-size: 1.5em;
+    }
+
+    .profileItem {
+        flex: 1 0 0;
+        margin: 10px;
+        width: 100%;
+        vertical-align: middle;
     }
 
     .modal-content,

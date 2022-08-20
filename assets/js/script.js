@@ -2,56 +2,35 @@ var modalButtonEl = $('#modal-button');
 var citySearchBtn = $('#citySearchBtn');
 var citySearchInput = $('#cities-autocomplete');
 var city;
-var changeCityBtn = $('#changeCity');
+var changeCityBtn1 = $('#changeCity-1');
+var changeCityBtn2 = $('#changeCity-2');
 var characterListUl = $("#characterList");
+var characters;
 
 // These are used in Marvel.js, Characters.html, and Profile.html
 var statusCode;
-var characterName;
-var numComics;
-var characterDescription;
-var profileImage;
 var backButton = $('.backButton');
 var characterClicked;
 
 // Get character info from Marvel
-function getCharacter(characterName) {
-
-  // var characterUrl = "https://gateway.marvel.com/v1/public/characters?hash=5ad57e2950ad170a8c45b38ddb6b3b01&ts=string&name=" + characterName + "&apikey=72b7c45c60389c825df0845f4afd3c85";
-
-  var characterUrl = "https://gateway.marvel.com/v1/public/characters?hash=46493b12f449dd19a8d6f3e9482602b8&ts=1&name=" + characterName + "&apikey=86db0495a9e60056ebd9ecda528d455d";
-  
-
-  // return fetch(characterUrl)
-  // .then((characterResponse) => {
-  //     return characterResponse.json();
-  // })
-  // .then((characterResponse) => {
-  //     characterName = characterResponse.data.results[0].name;
-  //     numComics = characterResponse.data.results[0].comics.available;
-  //     characterDescription = characterResponse.data.results[0].description;
-  //     profileImage = characterResponse.data.results[0].thumbnail.path + "." + characterResponse.data.results[0].thumbnail.extension;
-
-  //     console.log(profileImage);
-  //     characterListUl.append("<li class='character'>"+"<img src="+profileImage+" aria-label='character image'>"+"</li>");
-  // })
-  // .catch(error => console.log('error', error));
-    
+function getCharacter(index, name) {
+  var characterUrl = "https://gateway.marvel.com/v1/public/characters?hash=123c5cd9dacf1026d9e68584ba178603&ts=1&name=" + name + "&apikey=96460a36ab9d0f7072c766f530b5fd05";
+  //var characterUrl = "https://gateway.marvel.com/v1/public/characters?hash=46493b12f449dd19a8d6f3e9482602b8&ts=1&name=" + name + "&apikey=86db0495a9e60056ebd9ecda528d455d";
+  //var characterUrl = "https://gateway.marvel.com/v1/public/characters?hash=cd848f8ac92b7b905f9458a597170538&ts=1&name=" + name + "&apikey=676a7bbdec4d02d26007d6b7870d0d04";
+  return fetch(characterUrl)
+  .then((characterResponse) => {
+      return characterResponse.json();
+  })
+  .then((characterResponse) => {
+      characters[index]['comics'] = characterResponse.data.results[0].comics.available;
+      characters[index]['description'] = characterResponse.data.results[0].description;
+      var imageSrc = characterResponse.data.results[0].thumbnail.path + "." + characterResponse.data.results[0].thumbnail.extension;
+      characters[index]['image'] = imageSrc;
+      characterListUl.append("<li class='character' data-index=" + index + "><img src=" + imageSrc + " >" + "</li>");
+  })
+  .catch(error => console.log('error', error));
 };
-      
-// getCharacter("thor", "thorBoxImage");
-// getCharacter("groot", "grootBoxImage");
-// getCharacter("hulk", "hulkBoxImage");
-// getCharacter("black widow", "blackwidowBoxImage");
-// getCharacter("scarlet witch", "hulkBoxImage");
-// getCharacter("iron man", "ironmanBoxImage");
-// getCharacter("doctor strange", "doctorstrangeBoxImage");
-// getCharacter("captain america", "captainamericaBoxImage");
-// getCharacter("captain marvel (carol danvers)", "captainmarvelcaroldanversImage");
-// getCharacter("gamora", "gamoraBoxImage");
-// getCharacter("black panther", "blackpantherBoxImage");
-// getCharacter("spider-man (peter parker)", "spider-manpeterparkerImage");
-
+  
 function autoFilling() {
     var input = document.getElementById("cities-autocomplete");
     var autocomplete = new google.maps.places.Autocomplete(input);
@@ -65,107 +44,121 @@ $(".modal-close").click(function() {
   $(".modal").removeClass("is-active");
 });
 
-function fetchCharactersAndDisplay() {
-  $.getJSON("./assets/json/characters.json", function(data) {
-    console.log(data);
-    data.forEach(element => {
-      getCharacter(element.Character);
-    });
+async function fetchCharactersAndDisplay() {
+  await $.getJSON("./assets/json/characters.json", function(data) {
+    characters = data;
+    for (var i = 0; i < characters.length; i++) {
+      getCharacter(i, characters[i].character);
+    }
   });
 }
 
-citySearchBtn.on('click', function() {
-  var city = citySearchInput.val();
-  citySearchInput.val('');
+async function init() {
+  $(".characters").css("display", "none");
+  $(".landing-page").css("display", "block");
+  $(".profile").css("display", "none");
+  city = "";
+  await fetchCharactersAndDisplay();
+}
 
-  if (city) {
-    changeCityBtn.html(city);
+citySearchBtn.on('click', function() {
+  if (city == "") {
+    city = citySearchInput.val();
+    city = city.slice(0,-5);
+    citySearchInput.val('');
+    // If CITY is blank or null, show defualt of "SELECT CITY"
+    if (!city || city == null) {
+    city = "SELECT CITY";
+    changeCityBtn1.html(city);
+    changeCityBtn2.html(city);
+    };
+    $(".characters").css("display", "block");
+    $(".landing-page").css("display", "none");
+    $(".profile").css("display", "none");
   } else {
-    changeCityBtn.html("SELECT CITY")
+    city = citySearchInput.val();
+    city = city.slice(0,-5);
+    citySearchInput.val('');
+    changeCityBtn1.html(city);
+    changeCityBtn2.html(city);
   };
+
+  var place = "park";
+  var profileMap = $("#profileMap");
+  profileMap.html("");
+  profileMap.append("<iframe class='resp-iframe' width='600' height='450' style='border:0' loading='lazy' allowfullscreen src='https://www.google.com/maps/embed/v1/search?q="+ place +"%20near%20"+ city +"&key=AIzaSyDIAS6wopAuJKcmpYxEYnHXuXriBwMuew0'></iframe>");
 
   $(".modal").removeClass("is-active");
   $("nav").css("display", "block");
-  $(".characters").css("visibility", "visible");
-  $(".landing-page").css("visibility", "hidden");
 });
 
 backButton.on('click', function() {
-  console.log(city);
-  window.location.replace("./characters.html");
+  $(".characters").css("display", "block");
+  $(".landing-page").css("display", "none");
+  $(".profile").css("display", "none");
 })
 
-changeCityBtn.on('click', function() {
+changeCityBtn1.on('click', function() {
   $(".modal").addClass("is-active");
 });
 
-characterListUl.on("click", ".character", function() {
-  console.log("clicked");
-  characterClicked = event.currentTarget.classList[1];
-  localStorage.setItem("characterClicked", characterClicked);
-  window.location.replace("./profile.html");
+changeCityBtn2.on('click', function() {
+  $(".modal").addClass("is-active");
 });
 
-fetchCharactersAndDisplay();
 
-// Handle click function on character images
-// $(".characterBox").click(function (event) {
-//     console.log("click");
-// });
+var toDoCharacterInfo = $("#toDo-character-info");
+toDoCharacterInfo.on("click", ".toDoSearch", function(event) {
+  event.preventDefault();
+  var place = event.target.innerHTML;
+  var profileMap = $("#profileMap");
+  profileMap.html("");
+  profileMap.append("<iframe class='resp-iframe' width='600' height='450' style='border:0' loading='lazy' allowfullscreen src='https://www.google.com/maps/embed/v1/search?q="+ place +"%20near%20"+ city +"&key=AIzaSyDIAS6wopAuJKcmpYxEYnHXuXriBwMuew0'></iframe>");
+});
 
-// // Handle redirect to profile on click
-// $(".characterBox").click(function (event) {
-//     console.log(characterClicked);
-// });
+var toEatCharacterInfo = $("#toEat-character-info");
+toEatCharacterInfo.on("click", ".toEatSearch", function(event) {
+  event.preventDefault();
+  var place = event.target.innerHTML;
+  var profileMap = $("#profileMap");
+  profileMap.html("");
+  profileMap.append("<iframe class='resp-iframe' width='600' height='450' style='border:0' loading='lazy' allowfullscreen src='https://www.google.com/maps/embed/v1/search?q="+ place +"%20near%20"+ city +"&key=AIzaSyDIAS6wopAuJKcmpYxEYnHXuXriBwMuew0'></iframe>");
 
-// Get clicked character onto Profile page
-function getClickedCharacter(characterClicked) {
-  characterClicked = localStorage.getItem("characterClicked");
-  console.log("character:", characterClicked);
-};
+});
 
-// Get character info from Characters.json
-var favThing;
-var favMeal;
-var hobbies;
-var somethingToEat;
-var somethingToDo;
-var readMore;
-// var city = "{CITY}"
+characterListUl.on("click", ".character", function(event) {
+  var index = event.currentTarget.dataset.index;
+  //localStorage.setItem("characterClicked", characterClicked);
+  console.log(event.currentTarget.dataset.index);
+  var characterInfoTopUl = $("#character-info-top");
+  characterInfoTopUl.html("");
+  characterInfoTopUl.append("<li><h2 class='profileTitle'>" + characters[index].character + "</h2></li>");
+  characterInfoTopUl.append("<li class='characterDescription'>" + characters[index].description + "</li>")
+  characterInfoTopUl.append("<li><a class='readMore' href="+ characters[index].readMore +" target='_blank'>Read More <i class='fa-solid fa-chevron-right' style='font-size:1em;color:000;'></i></a></li>")
+  characterInfoTopUl.append("<hr>");
+  characterInfoTopUl.append("<li><strong># OF COMICS:</strong> <span class='numComics'>" + characters[index].comics + "</span></li>");
+  characterInfoTopUl.append("<li><strong>FAVORITE THING TO DO:</strong> <span class='favThing'>"+ characters[index].favThing +"</span></li>");
+  characterInfoTopUl.append("<li><strong>FAVORITE MEAL:</strong> <span class='favMeal'>"+ characters[index].favMeal +"</span></li>");
+  characterInfoTopUl.append("<li><strong>HOBBIES:</strong> <span class='hobbies'>"+ characters[index].hobbies +"</span></li>");
+  var profileImage = $('#profileImage');
+  profileImage.attr("src", characters[index].image);
+  
+  var cityCharacterInfo = $("#city-character-info");
+  cityCharacterInfo.html(city);
 
-function getCharacterInfo(characterClicked) {
-   console.log("character clicked", characterClicked);
-    var characterInfoUrl = "./assets/json/characters.json";
-    // console.log("Getting Characters");
+  var toDoCharacterInfo = $("#toDo-character-info");
+  characters[index].toDo.forEach(aDoing => {
+    toDoCharacterInfo.append("<li class='toDoSearch'><a href=''>"+ aDoing +"</a></li>");
+  });
+  var toEatCharacterInfo = $("#toEat-character-info");
+  characters[index].toEat.forEach(aEating => {
+    toEatCharacterInfo.append("<li class='toEatSearch'><a href=''>"+ aEating +"</a></li>");
+  });
+  
+  $(".characters").css("display", "none");
+  $(".landing-page").css("display", "none");
+  $(".profile").css("display", "block");
+});
 
-    return fetch(characterInfoUrl)
-    .then((characterInfoResponse) => {
-        return characterInfoResponse.json();
-    })
-    .then((characterInfoResponse) => {
-        console.log(characterInfoResponse);
-        favThing = characterInfoResponse[3]["Character"];
-        favMeal = characterInfoResponse[3]["Food"];
-        hobbies = characterInfoResponse[3]["Hobby"];
-        somethingToEat = characterInfoResponse[3]["Restaraunts"];
-        somethingToDo = characterInfoResponse[3]["Place"];
-        readMore = characterInfoResponse[3]["ReadMore"];
-        // console.log(somethingToEat.join(', '));
-
-        $(".city").html(city);
-        $(".favThing").html(favThing);
-        $(".favMeal").html(favMeal);
-        $(".hobbies").html(hobbies.join(', '));
-        $(".toEat").html(somethingToEat.join(', '));
-        $(".toDo").html(somethingToDo.join(', '));
-        $(".readMore").attr("href", readMore)
-        $(".changeCityButton").click(function (event) {
-            console.log("click");
-        });
-        
-
-    })
-    .catch(error => console.log('error', error));
-      
-} getCharacterInfo();
+init();
 

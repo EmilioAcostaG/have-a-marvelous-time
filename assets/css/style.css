@@ -385,12 +385,15 @@ a:visited {
         vertical-align: middle;
     }
 
+    .directionsTitle {
+        font-size: 1.5em;
+    }
+
     .pac-container {
         max-width: 450px;
     }
 
     .modal-content,
-    .directionsTitle,
     .directionsSubTitle,
     .directionsList,
     .searchingIn,
@@ -491,12 +494,17 @@ a:visited {
     .modal-content {
         scale: .75;
     }
+
+    .directionsTitle {
+        font-size: .8em;
+    }
 }
 
 @media (max-width: 375px) {
     .pac-container {
         max-width: 250px;
     }
+
 }
 
 @media (max-width: 350px) {

@@ -1,98 +1,110 @@
 [
     {
-        "Character": "Spiderman",
-        "Place": ["Escape Rooms", "Gymnastics Classes", "Movies"],
-        "Hobby": "Science Experiments",
-        "Restaraunts": ["Pizza, Hot dogs,"],
-        "Food": "Wheat Cakes",
-        "ReadMore": "https://www.marvel.com/characters/spider-man-peter-parker"
+        "character": "Spider-Man (Peter Parker)",
+        "toDo": ["Escape Rooms", "Gymnastics Classes", "Movies"],
+        "hobbies": "Science Experiments",
+        "favThing": "Perch On Buildings",
+        "toEat": ["Pizza, Hot dogs,"],
+        "favMeal": "Wheat Cakes",
+        "readMore": "https://www.marvel.com/characters/spider-man-peter-parker"
     },
     {
-        "Character": "Dr Strange",
-        "Place": ["Artifact Museums", "Libraries", "Medical Science Lectures"],
-        "Hobby": "Reading Books",
-        "Restaraunts": ["Michelin Star Restaurants", "Fine Dining"],
-        "Food": "Chocolate Yogurt Cake",
-        "ReadMore": "https://www.marvel.com/characters/doctor-strange-stephen-strange"
+        "character": "Doctor Strange",
+        "toDo": ["Artifact Museums", "Libraries", "Medical Science Lectures"],
+        "hobbies": "Reading Books",
+        "favThing": "Read",
+        "toEat": ["Michelin Star Restaurants", "Fine Dining"],
+        "favMeal": "Chocolate Yogurt Cake",
+        "readMore": "https://www.marvel.com/characters/doctor-strange-stephen-strange"
     },
     {
-        "Character": "Gamora",
-        "Place": ["Planetariums", "NASA artifact tours"],
-        "Hobby": "Listening to Music",
-        "Restaraunts": ["Smoothie Cafes"],
-        "Food": "Fruit",
-        "ReadMore": "https://www.marvel.com/characters/gamora"
+        "character": "Gamora",
+        "toDo": ["Planetariums", "NASA artifact tours"],
+        "hobbies": "Listening to Music",
+        "favThing": "Fight",
+        "toEat": ["Smoothie Cafes"],
+        "favMeal": "Fruit",
+        "readMore": "https://www.marvel.com/characters/gamora"
     },
     {
-        "Character": "Thor",
-        "Place": ["Gyms", "Axe Throwing"],
-        "Hobby": ["Drinking"],
-        "Restaraunts": ["Bars", "Steakhouses"],
-        "Food": "Junk Food",
-        "ReadMore": "https://www.marvel.com/characters/thor-thor-odinson"
+        "character": "Thor",
+        "toDo": ["Gyms", "Axe Throwing"],
+        "hobbies": ["Drinking"],
+        "favThing": "Axe Throwing",
+        "toEat": ["Bars", "Steakhouses"],
+        "favMeal": "Junk Food",
+        "readMore": "https://www.marvel.com/characters/thor-thor-odinson"
     },
     {
-        "Character": "Scarlet Witch",
-        "Place": ["Metaphysical Stores", "Celestial Event Watching"],
-        "Hobby": "Magic",
-        "Restaraunts": ["Eastern European Restaurants"],
-        "Food": "Paprikash",
-        "ReadMore": "https://www.marvel.com/characters/scarlet-witch-wanda-maximoff"
+        "character": "Scarlet Witch",
+        "toDo": ["Metaphysical Stores", "Celestial Event Watching"],
+        "hobbies": "Magic",
+        "favThing": "Observe",
+        "toEat": ["Eastern European Restaurants"],
+        "favMeal": "Paprikash",
+        "readMore": "https://www.marvel.com/characters/scarlet-witch-wanda-maximoff"
     },
     {
-        "Character": "Iron Man",
-        "Place": ["Robotics Conferences", "Science/Tech Lectures", "Car Shows"],
-        "Hobby": "Cars",
-        "Restaraunts": ["Burgers"],
-        "Food": "Cheeseburgers",
-        "ReadMore": "https://www.marvel.com/characters/iron-man-tony-stark"
+        "character": "Iron Man",
+        "toDo": ["Robotics Conferences", "Science/Tech Lectures", "Car Shows"],
+        "hobbies": "Cars",
+        "favThing": "Invent",
+        "toEat": ["Burgers"],
+        "favMeal": "Cheeseburgers",
+        "readMore": "https://www.marvel.com/characters/iron-man-tony-stark"
     },
     {
-        "Character": "Captain America",
-        "Place": ["Baseball games", "Hiking trails"],
-        "Hobby": "Running",
-        "Restaraunts": ["Barbecue", "Bakeries"],
-        "Food": "Apple Pie",
-        "ReadMore": "https://www.marvel.com/characters/captain-america-steve-rogers"
+        "character": "Captain America",
+        "toDo": ["Baseball games", "Hiking trails"],
+        "hobbies": "Running",
+        "favThing": "Walk",
+        "toEat": ["Barbecue", "Bakeries"],
+        "favMeal": "Apple Pie",
+        "readMore": "https://www.marvel.com/characters/captain-america-steve-rogers"
     },
     {
-        "Character": "Black Panther",
-        "Place": ["Night Clubs", "Symphony Orchestra"],
-        "Hobby": "Sparring",
-        "Restaraunts": ["Nigerian Food"],
-        "Food": "Braised Lamb",
-        "ReadMore": "https://www.marvel.com/characters/black-panther-t-challa"
+        "character": "Black Panther",
+        "toDo": ["Night Clubs", "Symphony Orchestra"],
+        "hobbies": "Sparring",
+        "favThing": "Think",
+        "toEat": ["Nigerian Food"],
+        "favMeal": "Braised Lamb",
+        "readMore": "https://www.marvel.com/characters/black-panther-t-challa"
     },
     {
-        "Character": "Black Widow",
-        "Place": ["Mixed Martial Arts Classes", "Gun Ranges"],
-        "Hobby": "Martial Arts",
-        "Restaraunts": ["Asian Restaruants"],
-        "Food": "PB&J",
-        "ReadMore": "https://www.marvel.com/characters/black-widow-natasha-romanoff"
+        "character": "Black Widow",
+        "toDo": ["Mixed Martial Arts Classes", "Gun Ranges"],
+        "hobbies": "Martial Arts",
+        "favThing": "Flying",
+        "toEat": ["Asian Restaruants"],
+        "favMeal": "PB&J",
+        "readMore": "https://www.marvel.com/characters/black-widow-natasha-romanoff"
     },
     {
-        "Character": "Groot",
-        "Place": ["Arboretums", "Botanical Gardens"],
-        "Hobby": "Video Games",
-        "Restaraunts": ["Vegan Restaurants", "Vegetarian Restaurants"],
-        "Food": "Vegetarian food",
-        "ReadMore": "https://www.marvel.com/characters/groot"
+        "character": "Groot",
+        "toDo": ["Arboretums", "Botanical Gardens"],
+        "hobbies": "Video Games",
+        "favThing": "I Am Groot",
+        "toEat": ["Vegan Restaurants", "Vegetarian Restaurants"],
+        "favMeal": "Vegetarian food",
+        "readMore": "https://www.marvel.com/characters/groot"
     },
     {
-        "Character": "Hulk",
-        "Place": ["Rage Rooms", "Demolition Derbies"],
-        "Hobby": "Smashing",
-        "Restaraunts": ["Buffets"],
-        "Food": "Baked Beans",
-        "ReadMore": "https://www.marvel.com/characters/hulk-bruce-banner"
+        "character": "Hulk",
+        "toDo": ["Rage Rooms", "Demolition Derbies"],
+        "hobbies": "Smashing",
+        "favThing": "Smash",
+        "toEat": ["Buffets"],
+        "favMeal": "Baked Beans",
+        "readMore": "https://www.marvel.com/characters/hulk-bruce-banner"
     },
     {
-        "Character": "Captain Marvel",
-        "Place": ["Coffee Shops", "Aviation Museums", "Comedy Clubs"],
-        "Hobby": "Aviation",
-        "Restaraunts": ["Sushi", "Cafes"],
-        "Food": "Coffee",
-        "ReadMore": "https://www.marvel.com/characters/captain-marvel-carol-danvers"
+        "character": "Captain Marvel (Carol Danvers)",
+        "toDo": ["Coffee Shops", "Aviation Museums", "Comedy Clubs"],
+        "hobbies": "Aviation",
+        "favThing": "Help People",
+        "toEat": ["Sushi", "Cafes"],
+        "favMeal": "Coffee",
+        "readMore": "https://www.marvel.com/characters/captain-marvel-carol-danvers"
     }
 ]

@@ -8,16 +8,16 @@
     <!-- Font Awesome for arrow icons -->
     <script src="https://kit.fontawesome.com/be3a01c72e.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./assets/css/reset.css">
-    <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="stylesheet" href="./assets/css/profile.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
     <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"> -->
 </head>
-<body>
+<body onload="getClickedCharacter()">
     <section id="mainProfile" class="main">
         <!-- Begin Nav -->
-        <section id="nav" class="nav">
+        <nav>
             <h1 class="navTitle">HAVE A<img src="assets/images/marvel_placeholder.png" aria-label="Marvel logo"/>OUS TIME</h1>
-        </section>
+        </nav>
         <!-- Begin Profile -->
         <section id="profile" class="profile">
             <!-- Begin Profile Image and Bio -->
@@ -26,6 +26,7 @@
                 <section class="profileItem"><img class="profileImage" src="" aria-label="character image"/></section>
                 <!-- Bio -->
                 <section class="profileText profileInfo profileItem">
+                    <button class="backButton button">BACK</i></button>
                     <ul class="characterInfo">
                         <!-- Replaces NAME dynamically from Marvel API -->
                         <li><h2 class="profileTitle">NAME</h2></li>
@@ -42,7 +43,7 @@
                         <li><strong>HOBBIES:</strong> <span class="hobbies">{HOBBIES}</span></li>
                     </ul>
                     <!-- TODO: Enable search functionality -->
-                    <button class="changeCityButton">CHANGE CITY <i class="fa-solid fa-chevron-down" style='font-size:1em;color:000;'></i></button>
+                    <button data-target="#modal" id="changeCity" class="button characterPageButton">SELECT CITY</button>
                 </section>
             </section>
             <!-- Begin Recommendations and Map -->
@@ -68,7 +69,7 @@
                 <!-- TODO: Conceal API Key -->
                 <section class="profileMap profileItem resp-container">
                     <!-- <iframe class="resp-iframe" width="600" height="450" style="border:0" loading="lazy" allowfullscreen
-                    src="https://www.google.com/maps/embed/v1/search?q=parks%20near%20Atlanta&key=AIzaSyDIAS6wopAuJKcmpYxEYnHXuXriBwMuew0"></iframe> -->
+                    src="https://www.google.com/maps/embed/v1/search?q=parks%20near%20Boston,MA,USA&key=AIzaSyDIAS6wopAuJKcmpYxEYnHXuXriBwMuew0"></iframe> -->
                 </section>
             </section>
         </section>
@@ -76,8 +77,5 @@
     <!-- TODO: add if statement to not load missing data -->
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="./assets/js/script.js"></script>
-    <script src="./assets/js/marvel.js"></script>
-    <script src="./assets/js/characterpage.js"></script>
-    <script src="./assets/js/characters.js"></script>
 </body>
 </html>

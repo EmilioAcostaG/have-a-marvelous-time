@@ -2,6 +2,7 @@
     --border: 1px solid white;
     --color: white;
     --box-shadow: 3px 3px 10px rgba(0, 0, 0, .75);
+    --marvel-red: rgb(155, 34, 34);
 }
 
 * {
@@ -15,27 +16,121 @@ main {
     text-align: center;
 }
 
-body {
+html, body {
     height: 100%;
+    background: radial-gradient(circle at center, rgb(86, 86, 86), rgb(0, 0, 0) 100%);
+}
+
+nav {
+    text-align: center;
+    width: 100%;
+    height: 30%;
+    vertical-align: middle;
+    background-color: rgba(0, 0, 0);
+    color: var(--color);
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    display: none; 
 }
 
 .navTitle {
     text-shadow: 2px 2px 4px #000000;
-    font-size: 4em;
+    font-size: 5em;
+    font-weight: bold;
     display: flex;
     justify-content: center;
     align-items: center;
     color: white;
 }
 
-.navTitle > img {
+.navTitle  > img {
     height: fit-content;
     position: relative;
 }
 
+.navTitleLP {
+    text-shadow: 2px 2px 4px #000000;
+    font-size: 3em;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    margin-bottom: 0px;
+}
+
+.navTitleLP > img {
+    height: fit-content;
+    position: relative;
+    max-height: 200px;
+}
+
+.navTitleLP {
+    margin-top: 400px;
+}
+
+.directionsTitle {
+    font-weight: bold;
+}
+
+.directionsList {
+    font-size: 1.2em;
+    margin-bottom: 25px;
+}
+
+.floatLeft {
+    float: left;
+}
+
+.searchingIn,
+.directionsSubTitle {
+    font-weight: bold;
+}
+
 #modal-button {
-    background-color: rgb(155, 34, 34);
     font-size: 2em;
+    /* margin-top: 400px; */
+}
+
+.button {
+    background-color: var(--marvel-red);
+    color: white;
+    font-weight: bold;
+    border: none;
+    box-shadow: var(--box-shadow);
+}
+
+.button:hover {
+    background-color: rgb(129, 22, 22);
+    color: white;
+    font-weight: bold;
+    border: none;
+    box-shadow: var(--box-shadow);
+    cursor: pointer;
+}
+
+.characterPageButton {
+    min-width: 200px;
+    min-height: 40px;
+}
+
+.modal-card-title {
+    text-align: center;
+    color: white;
+    font-weight: bold;
+}
+
+.modal-card-body {
+    background-color: var(--marvel-red);
+}
+.modal-card-foot,
+.modal-card-head {
+    background-color: var(--marvel-red);
+}
+
+.is-danger {
+    background-color: black;
 }
 
 #cities-autocomplete {
@@ -43,7 +138,6 @@ body {
 }
 
 .characters {
-    visibility: hidden;
     position: absolute;
     height: 100vh;
     width: 100%;
@@ -59,19 +153,143 @@ body {
     background: radial-gradient(circle at center, rgb(86, 86, 86), rgb(0, 0, 0) 100%);
 }
 
-nav {
-    text-align: center;
-    width: 100%;
-    height: 30%;
-    vertical-align: middle;
-    background-color: rgba(0, 0, 0);
-    color: var(--color);
+/* START CSS FOR PROFILE PAGE */
+
+.profile {
     display: flex;
-    justify-content: center;
-    align-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
+.profileTitle {
+    text-shadow: 2px 2px 4px #000000;
+    font-size: 2em;
+}
 
-@media (min-width: 1000px) {
+.recsTitle {
+    text-shadow: 2px 2px 4px #000000;
+    font-size: 1.5em;
+}
+
+.profileTop, .profileBottom {
+    display: flex;
+    justify-content: space-between;
+}
+
+.profileTop,
+.profileBottom {
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+
+.profileBottom {
+    background-color: rgba(0, 0, 0, .50);
+}
+
+.profileItem {
+    flex: 1 0 0;
+    margin: 10px;
+    /* max-width: 50%; */
+    width: 50%;
+    vertical-align: middle;
+    /* text-align: center; */
+}
+
+.profileInfo {
+    position: relative;
+}
+
+.profileImage {
+    /* border: 0px 2px 2px 2px solid white; */
+    box-shadow: var(--box-shadow);
+    border-radius: 0px 15px 15px 0px;
+    overflow: hidden;
+    margin-left: 0px;
+    /* min-width: 400px; */
+    /* height: 100%; */
+    flex: 0 1 0;
+    /* max-width: 500px; */
+}
+
+.profileMap {
+    height: 500px;
+    /* border: 2px solid white; */
+    box-shadow: var(--box-shadow);
+    border-radius: 15px 0px 0px 15px;
+    margin-right: 0px;
+}
+
+.changeCityButton,
+.backButton {
+    margin-top: 150px;
+    padding: 10px;
+    width: 250px;
+    /* border-radius: 5px; */
 
 }
+
+.backButton {
+    width: 100px;
+    margin-top: 0px;
+    float: right;
+    cursor: pointer;
+}
+
+.characterInfo {
+    list-style: none;
+    padding-left: 0px;
+    color: var(--color);
+}
+
+.characterInfo > li {
+    margin-top: 15px;
+}
+
+.place,
+.toEat,
+.toDo {
+    color: var(--marvel-red);
+}
+
+a,
+a:hover,
+a:visited {
+    color: var(--marvel-red);
+    font-style: italic;
+}
+
+/* Handle iFrame */
+
+.resp-container {
+    position: relative;
+    overflow: hidden;
+    /* padding-top: 56.25%; */
+}
+
+.resp-iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+/* @media (min-width: 1000px) {
+    .navTitle {
+        text-shadow: 2px 2px 4px #000000;
+        font-size: 3em;
+        font-weight: bold;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+    }
+    
+    .navTitle > img {
+        height: fit-content;
+        position: relative;
+        scale: .75;
+    }
+} */

@@ -14,6 +14,7 @@ main {
     margin: auto;
     height: 100%;
     text-align: center;
+    background: radial-gradient(circle at center, rgb(86, 86, 86), rgb(0, 0, 0) 100%);
 }
 
 html, body {
@@ -238,27 +239,33 @@ nav {
 
 .profileTitle {
     text-shadow: 2px 2px 4px #000000;
-    font-size: 3em;
+    font-size: 4em;
+    font-weight: bold;
 }
 
 .recsTitle {
     text-shadow: 2px 2px 4px #000000;
-    font-size: 1.5em;
+    font-size: 2.5em;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.toEat,
+.toDo {
+    margin-bottom: 20px;
 }
 
 .profileTop, .profileBottom {
     display: flex;
     justify-content: space-between;
-}
-
-.profileTop,
-.profileBottom {
     padding-bottom: 20px;
     padding-top: 20px;
 }
 
 .profileBottom {
     background-color: rgba(0, 0, 0, .50);
+    /* height: 1000px; */
+    position: relative;
 }
 
 .profileItem {
@@ -283,7 +290,8 @@ nav {
     margin-left: 0px;
     /* min-width: 400px; */
     /* height: 100%; */
-    flex: 0 1 0;
+    flex: 1 1 0;
+    width: 100%;
     /* max-width: 500px; */
 }
 
@@ -293,6 +301,12 @@ nav {
     box-shadow: var(--box-shadow);
     border-radius: 15px 0px 0px 15px;
     margin-right: 0px;
+}
+
+.readMore,
+.readMore > a {
+    font-weight: bold;
+    color: red;
 }
 
 .changeCityButton,
@@ -324,7 +338,19 @@ nav {
 }
 
 .characterDescription {
-    font-size: 1.5em;
+    font-size: 2em;
+}
+
+.characterDescriptionSub,
+.numComics,
+.favMeal,
+.favThing,
+.hobbies,
+.characterRecs,
+.toEat-character-info,
+.toDo-character-info,
+.toDoSearch {
+    font-size: 1.4em;
 }
 
 strong {
@@ -340,7 +366,7 @@ strong {
 a,
 a:hover,
 a:visited {
-    color: var(--marvel-red);
+    color: var(--color);
     font-style: italic;
 }
 

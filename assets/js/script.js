@@ -69,9 +69,10 @@ citySearchBtn.on('click', function() {
     // If CITY is blank or null, show defualt of "SELECT CITY"
     if (!city || city == null) {
     city = "SELECT CITY";
+    };
+    city = city.toUpperCase();
     changeCityBtn1.html(city);
     changeCityBtn2.html(city);
-    };
     $(".characters").css("display", "block");
     $(".landing-page").css("display", "none");
     $(".profile").css("display", "none");
@@ -132,19 +133,19 @@ characterListUl.on("click", ".character", function(event) {
   console.log(event.currentTarget.dataset.index);
   var characterInfoTopUl = $("#character-info-top");
   characterInfoTopUl.html("");
-  characterInfoTopUl.append("<li><h2 class='profileTitle'>" + characters[index].character + "</h2></li>");
+  characterInfoTopUl.append("<li><h2 class='profileTitle'>" + characters[index].character.toUpperCase() + "</h2></li>");
   characterInfoTopUl.append("<li class='characterDescription'>" + characters[index].description + "</li>")
-  characterInfoTopUl.append("<li><a class='readMore' href="+ characters[index].readMore +" target='_blank'>Read More <i class='fa-solid fa-chevron-right' style='font-size:1em;color:000;'></i></a></li>")
+  characterInfoTopUl.append("<li><a class='readMore' href="+ characters[index].readMore +" target='_blank'>Read More</a></li>")
   characterInfoTopUl.append("<hr>");
-  characterInfoTopUl.append("<li><strong># OF COMICS:</strong> <span class='numComics'>" + characters[index].comics + "</span></li>");
-  characterInfoTopUl.append("<li><strong>FAVORITE THING TO DO:</strong> <span class='favThing'>"+ characters[index].favThing +"</span></li>");
-  characterInfoTopUl.append("<li><strong>FAVORITE MEAL:</strong> <span class='favMeal'>"+ characters[index].favMeal +"</span></li>");
-  characterInfoTopUl.append("<li><strong>HOBBIES:</strong> <span class='hobbies'>"+ characters[index].hobbies +"</span></li>");
+  characterInfoTopUl.append("<li><strong class='characterDescriptionSub'># OF COMICS:</strong> <span class='numComics'>" + characters[index].comics + "</span></li>");
+  characterInfoTopUl.append("<li><strong class='characterDescriptionSub'>FAVORITE THING TO DO:</strong> <span class='favThing'>"+ characters[index].favThing +"</span></li>");
+  characterInfoTopUl.append("<li><strong class='characterDescriptionSub'>FAVORITE MEAL:</strong> <span class='favMeal'>"+ characters[index].favMeal +"</span></li>");
+  characterInfoTopUl.append("<li><strong class='characterDescriptionSub'>HOBBIES:</strong> <span class='hobbies'>"+ characters[index].hobbies +"</span></li>");
   var profileImage = $('#profileImage');
   profileImage.attr("src", characters[index].image);
   
   var cityCharacterInfo = $("#city-character-info");
-  cityCharacterInfo.html(city);
+  cityCharacterInfo.html(city.toUpperCase());
 
   var toDoCharacterInfo = $("#toDo-character-info");
   characters[index].toDo.forEach(aDoing => {

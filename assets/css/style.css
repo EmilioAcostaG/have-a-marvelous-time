@@ -1,7 +1,10 @@
+/* Setup css variables */
+
 :root {
     --border: 1px solid white;
     --color: white;
     --box-shadow: 3px 3px 10px rgba(0, 0, 0, .75);
+    text-shadow: var(--text-shadow);
     --marvel-red: rgb(155, 34, 34);
 }
 
@@ -24,7 +27,6 @@ html, body {
 
 body {
     height: 100%;
-    /* background: radial-gradient(circle at center, rgb(86, 86, 86), rgb(0, 0, 0) 100%); */
 }
 
 
@@ -34,7 +36,7 @@ nav {
     text-align: center;
     width: 100%;
     vertical-align: middle;
-    background-color: rgba(0, 0, 0);
+    background-color: black;
     color: var(--color);
     display: flex;
     justify-content: center;
@@ -65,7 +67,7 @@ nav {
 }
 
 .directions {
-    text-shadow: 2px 2px 4px #000000;
+    text-shadow: var(--text-shadow);
     color: var(--color);
     text-align: center;
     padding-top: 20px;
@@ -94,9 +96,10 @@ nav {
     font-weight: bold;
 }
 
+/* BEGIN BUTTONS */
+
 #modal-button {
     font-size: 2em;
-    /* margin-top: 400px; */
 }
 
 .button {
@@ -120,6 +123,8 @@ nav {
     min-width: 200px;
     min-height: 40px;
 }
+
+/* BEGIN MODAL */
 
 .modal-card-title {
     text-align: center;
@@ -168,6 +173,8 @@ nav {
     max-width: 100%;
 }
 
+/* BEGIN CHARACTERS */
+
 .characters {
     position: absolute;
     height: 100vh;
@@ -182,7 +189,7 @@ nav {
 .changeCityButton {
     padding: 10px;
     width: 250px;
-    background-color: rgb(155, 34, 34);
+    background-color: var(--marvel-red);
     color: var(--color);
     border: none;
     font-size: 1em;
@@ -206,7 +213,6 @@ nav {
     width: 25%;
     text-align: center;
     vertical-align: middle;
-    background-color: rgb(155, 34, 34);
     box-shadow: var(--box-shadow);
     border-radius: 5px;
     margin-bottom: 10%;
@@ -219,7 +225,6 @@ nav {
     width: 100%;
     height: auto;
     border-radius: 5px;
-    /* padding-bottom: 20px; */
 }
 
 .character:after {
@@ -233,21 +238,18 @@ nav {
     width: 100%;
     height: 100vh;
     top: 0;
-    /* background: radial-gradient(circle at center, rgb(86, 86, 86), rgb(0, 0, 0) 100%); */
 }
 
-/* Handle Tool Tip */
+/* BEGIN TOOL TIP */
 
 .tooltip {
     position: relative;
-    /* display: inline-block; */
-    /* border-bottom: 1px dotted black; */
   }
   
   .tooltip .tooltiptext {
     visibility: hidden;
     width: 120px;
-    color: #fff;
+    color: var(--color);
     font-weight: bold;
     text-align: center;
     border-radius: 6px;
@@ -269,7 +271,7 @@ nav {
     opacity: 1;
   }
 
-/* START CSS FOR PROFILE PAGE */
+/* BEGIN PROFILE PAGE */
 
 .profile {
     display: flex;
@@ -280,13 +282,13 @@ nav {
 }
 
 .profileTitle {
-    text-shadow: 2px 2px 4px #000000;
+    text-shadow: var(--text-shadow);
     font-size: 4em;
     font-weight: bold;
 }
 
 .recsTitle {
-    text-shadow: 2px 2px 4px #000000;
+    text-shadow: var(--text-shadow);
     font-size: 2.5em;
     font-weight: bold;
     margin-bottom: 20px;
@@ -299,7 +301,6 @@ nav {
 
 .profileTop, .profileBottom {
     display: flex;
-    /* flex-wrap: wrap; */
     justify-content: center;
     padding-bottom: 20px;
     padding-top: 20px;
@@ -307,7 +308,6 @@ nav {
 
 .profileBottom {
     background-color: rgba(0, 0, 0, 0.5);
-    /* height: 1000px; */
     position: fixed bottom;
 
 }
@@ -334,7 +334,6 @@ nav {
 
 .profileMap {
     height: 500px;
-    /* border: 2px solid white; */
     box-shadow: var(--box-shadow);
     border-radius: 15px 0px 0px 15px;
     margin-right: 0px;
@@ -343,7 +342,12 @@ nav {
 .readMore,
 .readMore > a {
     font-weight: bold;
-    color: red;
+    color: var(--color);
+}
+
+a:hover {
+    font-weight: bold;
+    color: var(--marvel-red);
 }
 
 .changeCityButton,
@@ -351,8 +355,6 @@ nav {
     margin-top: 150px;
     padding: 10px;
     width: 250px;
-    /* border-radius: 5px; */
-
 }
 
 .backButton {
@@ -414,7 +416,6 @@ a:visited {
 .resp-container {
     position: relative;
     overflow: hidden;
-    /* padding-top: 56.25%; */
 }
 
 .resp-iframe {
@@ -425,6 +426,8 @@ a:visited {
     height: 100%;
     border: 0;
 }
+
+/* Screens smaller than 1100px */
 
 @media (max-width: 1100px) {
 
@@ -489,9 +492,9 @@ a:visited {
         color: var(--color);
         margin-bottom: 20px;
     }
-
-
 }
+
+/* Screens smaller than 650px */
 
 @media (max-width: 650px) {
     .navTitleLP {
@@ -530,8 +533,9 @@ a:visited {
     min-width: 200px;
     min-height: 200px;
     }
-      
 }
+
+/* Screens smaller than 600px */
 
 @media (max-width: 600px) {
     .pac-container {
@@ -549,6 +553,8 @@ a:visited {
     }
 }
 
+/* Screens smaller than 500px */
+
 @media (max-width: 500px) {
     .pac-container {
         max-width: 375px;
@@ -565,6 +571,8 @@ a:visited {
     }
 }
 
+/* Screens smaller than 450px */
+
 @media (max-width: 450px) {
     .pac-container {
         max-width: 330px;
@@ -578,6 +586,8 @@ a:visited {
         font-size: 1.7em;
     }
 }
+
+/* Screens smaller than 400px */
 
 @media (max-width: 400px) {
     .pac-container {
@@ -608,6 +618,8 @@ a:visited {
     }
 }
 
+/* Screens smaller than 375px */
+
 @media (max-width: 375px) {
     .pac-container {
         max-width: 250px;
@@ -617,6 +629,8 @@ a:visited {
         font-size: 1.3em;
     }
 }
+
+/* Screens smaller than 350px */
 
 @media (max-width: 350px) {
     .pac-container {

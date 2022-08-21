@@ -130,9 +130,29 @@ nav {
 .modal-card-body {
     background-color: var(--marvel-red);
 }
+
 .modal-card-foot,
 .modal-card-head {
     background-color: var(--marvel-red);
+}
+
+.searchHistory {
+    margin-bottom: 10px;
+    text-align: center;
+    color: white;
+}
+
+#citySearchHistory {
+    margin-bottom: 20px;
+    color: white;
+}
+
+#citySearchHistory li:hover {
+    color: burlywood;
+}
+
+.aCitySearched {
+    text-align: center;
 }
 
 .is-danger {

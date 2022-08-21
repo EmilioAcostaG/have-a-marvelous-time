@@ -26,7 +26,7 @@ function getCharacter(index, name) {
       characters[index]['description'] = characterResponse.data.results[0].description;
       var imageSrc = characterResponse.data.results[0].thumbnail.path + "." + characterResponse.data.results[0].thumbnail.extension;
       characters[index]['image'] = imageSrc;
-      characterListUl.append("<li class='character' data-index=" + index + "><img class='has-tooltip-primary' data-tooltip='Tooltip Text' src=" + imageSrc + " >" + "</li>");
+      characterListUl.append("<li class='character tooltip' data-index=" + index + "><img src=" + imageSrc + " >" + "<span class='tooltiptext'>" + name.toUpperCase() + "</span></li>");
   })
   .catch(error => console.log('error', error));
 };

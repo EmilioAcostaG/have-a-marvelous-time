@@ -171,6 +171,8 @@ nav {
     flex-wrap: wrap;
     justify-content: space-evenly;
     width: 100%;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 .character {
@@ -397,7 +399,7 @@ a:visited {
     .directionsSubTitle,
     .directionsList,
     .searchingIn,
-    button, {
+    button {
         scale: .75;
     }
 

@@ -77,7 +77,7 @@ async function fetchCharactersAndDisplay() {
   });
 }
 
-// Show specific pages 
+// Show specific pages using async await -- we wait for the Fetch to complete before moving on
 async function init() {
   $(".characters").css("display", "none");
   $(".landing-page").css("display", "block");

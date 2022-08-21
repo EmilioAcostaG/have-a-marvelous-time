@@ -136,6 +136,10 @@ nav {
     background-color: var(--marvel-red);
 }
 
+#modalFooterP {
+    color: var(--color);
+}
+
 .searchHistory {
     margin-bottom: 10px;
     text-align: center;

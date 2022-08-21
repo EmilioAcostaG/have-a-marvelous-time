@@ -14,9 +14,9 @@ var characterClicked;
 
 // Get character info from Marvel
 function getCharacter(index, name) {
-  // var characterUrl = "https://gateway.marvel.com/v1/public/characters?hash=123c5cd9dacf1026d9e68584ba178603&ts=1&name=" + name + "&apikey=96460a36ab9d0f7072c766f530b5fd05";
-  var characterUrl = "https://gateway.marvel.com/v1/public/characters?hash=46493b12f449dd19a8d6f3e9482602b8&ts=1&name=" + name + "&apikey=86db0495a9e60056ebd9ecda528d455d";
-  //var characterUrl = "https://gateway.marvel.com/v1/public/characters?hash=cd848f8ac92b7b905f9458a597170538&ts=1&name=" + name + "&apikey=676a7bbdec4d02d26007d6b7870d0d04";
+  //var characterUrl = "https://gateway.marvel.com/v1/public/characters?hash=123c5cd9dacf1026d9e68584ba178603&ts=1&name=" + name + "&apikey=96460a36ab9d0f7072c766f530b5fd05";
+  //var characterUrl = "https://gateway.marvel.com/v1/public/characters?hash=46493b12f449dd19a8d6f3e9482602b8&ts=1&name=" + name + "&apikey=86db0495a9e60056ebd9ecda528d455d";
+  var characterUrl = "https://gateway.marvel.com/v1/public/characters?hash=cd848f8ac92b7b905f9458a597170538&ts=1&name=" + name + "&apikey=676a7bbdec4d02d26007d6b7870d0d04";
   return fetch(characterUrl)
   .then((characterResponse) => {
       return characterResponse.json();
@@ -37,7 +37,22 @@ function autoFilling() {
 }
 
 modalButtonEl.on('click', function() {
+  var citySearchHistoryUl = $('#citySearchHistory');
+  citySearchHistoryUl.html("");
+  var cityList = JSON.parse(localStorage.getItem("cities"));
+  if (cityList != null) {
+    cityList.forEach(aCity => {
+      citySearchHistoryUl.append("<a href=''><li class='aCitySearched'>"+ aCity +"</li></a>");
+    });
+  }
   $(".modal").addClass("is-active");
+});
+
+var citySearchHistoryUl = $("#citySearchHistory");
+citySearchHistoryUl.on("click", ".aCitySearched", function(event) {
+  event.preventDefault();
+  var checkedCity = event.target.innerHTML;
+  citySearchHandler(checkedCity);
 });
 
 $(".modal-close").click(function() {
@@ -61,28 +76,50 @@ async function init() {
   await fetchCharactersAndDisplay();
 }
 
-citySearchBtn.on('click', function() {
-  if (city == "") {
-    city = citySearchInput.val();
-    city = city.slice(0,-5);
+function citySearchHandler(checkedCity) {
+  $("#modalFooterP").html("");
+  if (checkedCity=="") {
+    checkedCity = citySearchInput.val();
+    checkedCity = checkedCity.slice(0,-5);
     citySearchInput.val('');
-    // If CITY is blank or null, show defualt of "SELECT CITY"
-    if (!city || city == null) {
-    city = "SELECT CITY";
+  }
+
+  if (city == "") {
+    var citySearched = checkedCity;
+    // If CITY is blank or null, show default of "SELECT CITY"
+    if (!citySearched || citySearched == null) {
+      $("#modalFooterP").html("Please Input A City In The USA<br>");
+      return;
     };
-    city = city.toUpperCase();
+    city = citySearched.toUpperCase();
     changeCityBtn1.html(city);
     changeCityBtn2.html(city);
     $(".characters").css("display", "block");
     $(".landing-page").css("display", "none");
     $(".profile").css("display", "none");
   } else {
-    city = citySearchInput.val();
-    city = city.slice(0,-5);
-    citySearchInput.val('');
+    var citySearched = checkedCity;
+    // If CITY is blank or null, show defualt of "SELECT CITY"
+    if (!citySearched || citySearched == null) {
+      $("#modalFooterP").html("Please Input A City In The USA");
+      return;
+    };
+    city = citySearched.toUpperCase();
     changeCityBtn1.html(city);
     changeCityBtn2.html(city);
   };
+
+  var cityList = JSON.parse(localStorage.getItem("cities"));
+  if (cityList != null) {
+    var check = false;
+    cityList.forEach(aCity => {   
+      if (aCity == city) check = true;
+    });
+    if (check == false) cityList.push(city);
+  } else {
+    cityList = [city];
+  }
+  localStorage.setItem("cities", JSON.stringify(cityList));
 
   var place = "park";
   var profileMap = $("#profileMap");
@@ -91,6 +128,59 @@ citySearchBtn.on('click', function() {
 
   $(".modal").removeClass("is-active");
   $("nav").css("display", "block");
+
+}
+
+citySearchBtn.on('click', function(){
+    $("#modalFooterP").html("");
+    checkedCity = citySearchInput.val();
+    checkedCity = checkedCity.slice(0,-5);
+    citySearchInput.val('');
+  
+    if (city == "") {
+      var citySearched = checkedCity;
+      // If CITY is blank or null, show default of "SELECT CITY"
+      if (!citySearched || citySearched == null) {
+        $("#modalFooterP").html("Please Input A City In The USA<br>");
+        return;
+      };
+      city = citySearched.toUpperCase();
+      changeCityBtn1.html(city);
+      changeCityBtn2.html(city);
+      $(".characters").css("display", "block");
+      $(".landing-page").css("display", "none");
+      $(".profile").css("display", "none");
+    } else {
+      var citySearched = checkedCity;
+      // If CITY is blank or null, show defualt of "SELECT CITY"
+      if (!citySearched || citySearched == null) {
+        $("#modalFooterP").html("Please Input A City In The USA");
+        return;
+      };
+      city = citySearched.toUpperCase();
+      changeCityBtn1.html(city);
+      changeCityBtn2.html(city);
+    };
+  
+    var cityList = JSON.parse(localStorage.getItem("cities"));
+    if (cityList != null) {
+      var check = false;
+      cityList.forEach(aCity => {   
+        if (aCity == city) check = true;
+      });
+      if (check == false) cityList.push(city);
+    } else {
+      cityList = [city];
+    }
+    localStorage.setItem("cities", JSON.stringify(cityList));
+  
+    var place = "park";
+    var profileMap = $("#profileMap");
+    profileMap.html("");
+    profileMap.append("<iframe class='resp-iframe' width='600' height='450' style='border:0' loading='lazy' allowfullscreen src='https://www.google.com/maps/embed/v1/search?q="+ place +"%20near%20"+ city +"&key=AIzaSyDIAS6wopAuJKcmpYxEYnHXuXriBwMuew0'></iframe>");
+  
+    $(".modal").removeClass("is-active");
+    $("nav").css("display", "block");
 });
 
 backButton.on('click', function() {
@@ -100,10 +190,26 @@ backButton.on('click', function() {
 })
 
 changeCityBtn1.on('click', function() {
+  var citySearchHistoryUl = $('#citySearchHistory');
+  citySearchHistoryUl.html("");
+  var cityList = JSON.parse(localStorage.getItem("cities"));
+  if (cityList != null) {
+    cityList.forEach(aCity => {
+      citySearchHistoryUl.append("<a href=''><li class='aCitySearched'>"+ aCity +"</li></a>");
+    });
+  }
   $(".modal").addClass("is-active");
 });
 
 changeCityBtn2.on('click', function() {
+  var citySearchHistoryUl = $('#citySearchHistory');
+  citySearchHistoryUl.html("");
+  var cityList = JSON.parse(localStorage.getItem("cities"));
+  if (cityList != null) {
+    cityList.forEach(aCity => {
+      citySearchHistoryUl.append("<a href=''><li class='aCitySearched'>"+ aCity +"</li></a>");
+    });
+  }
   $(".modal").addClass("is-active");
 });
 
@@ -129,8 +235,6 @@ toEatCharacterInfo.on("click", ".toEatSearch", function(event) {
 
 characterListUl.on("click", ".character", function(event) {
   var index = event.currentTarget.dataset.index;
-  //localStorage.setItem("characterClicked", characterClicked);
-  console.log(event.currentTarget.dataset.index);
   var characterInfoTopUl = $("#character-info-top");
   characterInfoTopUl.html("");
   characterInfoTopUl.append("<li><h2 class='profileTitle'>" + characters[index].character.toUpperCase() + "</h2></li>");
@@ -148,12 +252,12 @@ characterListUl.on("click", ".character", function(event) {
   cityCharacterInfo.html(city.toUpperCase());
 
   var toDoCharacterInfo = $("#toDo-character-info");
-  toDoCharacterInfo.html('');
+  toDoCharacterInfo.html("");
   characters[index].toDo.forEach(aDoing => {
     toDoCharacterInfo.append("<li class='toDoSearch'><a href=''>"+ aDoing +"</a></li>");
   });
   var toEatCharacterInfo = $("#toEat-character-info");
-  toEatCharacterInfo.html('');
+  toEatCharacterInfo.html("");
   characters[index].toEat.forEach(aEating => {
     toEatCharacterInfo.append("<li class='toEatSearch'><a href=''>"+ aEating +"</a></li>");
   });

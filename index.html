@@ -78,9 +78,13 @@
         <button class="delete modal-close" aria-label="close"></button>
       </header>
       <section class="modal-card-body">
-        <input class="input" type="text" placeholder="Beging typing to search.." id="cities-autocomplete">
+        <p class="searchHistory">SEARCH HISTORY: </p>
+        <ul id="citySearchHistory">
+        </ul>
+        <input class="input" type="text" placeholder="Beginning with a city to search ..." id="cities-autocomplete">
       </section>
-      <footer class="modal-card-foot is-justify-content-center">
+      <footer id="modalFooter" class="modal-card-foot is-justify-content-center">
+        <p id="modalFooterP"></p>
         <button class="button" id="citySearchBtn">SUBMIT</button>
       </footer>
     </div>

@@ -1,7 +1,10 @@
+/* Setup css variables */
+
 :root {
     --border: 1px solid white;
     --color: white;
     --box-shadow: 3px 3px 10px rgba(0, 0, 0, .75);
+    text-shadow: var(--text-shadow);
     --marvel-red: rgb(155, 34, 34);
 }
 
@@ -24,7 +27,6 @@ html, body {
 
 body {
     height: 100%;
-    /* background: radial-gradient(circle at center, rgb(86, 86, 86), rgb(0, 0, 0) 100%); */
 }
 
 
@@ -34,7 +36,7 @@ nav {
     text-align: center;
     width: 100%;
     vertical-align: middle;
-    background-color: rgba(0, 0, 0);
+    background-color: black;
     color: var(--color);
     display: flex;
     justify-content: center;
@@ -65,7 +67,7 @@ nav {
 }
 
 .directions {
-    text-shadow: 2px 2px 4px #000000;
+    text-shadow: var(--text-shadow);
     color: var(--color);
     text-align: center;
     padding-top: 20px;
@@ -94,9 +96,10 @@ nav {
     font-weight: bold;
 }
 
+/* BEGIN BUTTONS */
+
 #modal-button {
     font-size: 2em;
-    /* margin-top: 400px; */
 }
 
 .button {
@@ -121,6 +124,8 @@ nav {
     min-height: 40px;
 }
 
+/* BEGIN MODAL */
+
 .modal-card-title {
     text-align: center;
     color: white;
@@ -134,6 +139,10 @@ nav {
 .modal-card-foot,
 .modal-card-head {
     background-color: var(--marvel-red);
+}
+
+#modalFooterP {
+    color: var(--color);
 }
 
 .searchHistory {
@@ -164,6 +173,8 @@ nav {
     max-width: 100%;
 }
 
+/* BEGIN CHARACTERS */
+
 .characters {
     position: absolute;
     height: 100vh;
@@ -178,7 +189,7 @@ nav {
 .changeCityButton {
     padding: 10px;
     width: 250px;
-    background-color: rgb(155, 34, 34);
+    background-color: var(--marvel-red);
     color: var(--color);
     border: none;
     font-size: 1em;
@@ -191,6 +202,8 @@ nav {
     flex-wrap: wrap;
     justify-content: space-evenly;
     width: 100%;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 .character {
@@ -200,9 +213,9 @@ nav {
     width: 25%;
     text-align: center;
     vertical-align: middle;
-    background-color: rgb(155, 34, 34);
     box-shadow: var(--box-shadow);
     border-radius: 5px;
+    margin-bottom: 10%;
 }
 
 .character img {
@@ -210,7 +223,8 @@ nav {
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: auto;
+    border-radius: 5px;
 }
 
 .character:after {
@@ -224,10 +238,40 @@ nav {
     width: 100%;
     height: 100vh;
     top: 0;
-    /* background: radial-gradient(circle at center, rgb(86, 86, 86), rgb(0, 0, 0) 100%); */
 }
 
-/* START CSS FOR PROFILE PAGE */
+/* BEGIN TOOL TIP */
+
+.tooltip {
+    position: relative;
+  }
+  
+  .tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    color: var(--color);
+    font-weight: bold;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 100%;
+    left: 50%;
+    top: 60%;
+    margin-left: -60px;
+        
+    /* Fade in tooltip - takes 1 second to go from 0% to 100% opac: */
+    opacity: 0;
+    transition: opacity 1s;
+  }
+  
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+  }
+
+/* BEGIN PROFILE PAGE */
 
 .profile {
     display: flex;
@@ -238,13 +282,13 @@ nav {
 }
 
 .profileTitle {
-    text-shadow: 2px 2px 4px #000000;
+    text-shadow: var(--text-shadow);
     font-size: 4em;
     font-weight: bold;
 }
 
 .recsTitle {
-    text-shadow: 2px 2px 4px #000000;
+    text-shadow: var(--text-shadow);
     font-size: 2.5em;
     font-weight: bold;
     margin-bottom: 20px;
@@ -257,7 +301,6 @@ nav {
 
 .profileTop, .profileBottom {
     display: flex;
-    /* flex-wrap: wrap; */
     justify-content: center;
     padding-bottom: 20px;
     padding-top: 20px;
@@ -265,7 +308,6 @@ nav {
 
 .profileBottom {
     background-color: rgba(0, 0, 0, 0.5);
-    /* height: 1000px; */
     position: fixed bottom;
 
 }
@@ -285,14 +327,13 @@ nav {
     box-shadow: var(--box-shadow);
     border-radius: 0px 15px 15px 0px;
     overflow: hidden;
-    margin-left: 0px;
+    margin-left: -10px;
     flex: 1 1 0;
     width: 100%;
 }
 
 .profileMap {
     height: 500px;
-    /* border: 2px solid white; */
     box-shadow: var(--box-shadow);
     border-radius: 15px 0px 0px 15px;
     margin-right: 0px;
@@ -301,7 +342,12 @@ nav {
 .readMore,
 .readMore > a {
     font-weight: bold;
-    color: red;
+    color: var(--color);
+}
+
+a:hover {
+    font-weight: bold;
+    color: var(--marvel-red);
 }
 
 .changeCityButton,
@@ -309,8 +355,6 @@ nav {
     margin-top: 150px;
     padding: 10px;
     width: 250px;
-    /* border-radius: 5px; */
-
 }
 
 .backButton {
@@ -372,7 +416,6 @@ a:visited {
 .resp-container {
     position: relative;
     overflow: hidden;
-    /* padding-top: 56.25%; */
 }
 
 .resp-iframe {
@@ -383,6 +426,8 @@ a:visited {
     height: 100%;
     border: 0;
 }
+
+/* Screens smaller than 1100px */
 
 @media (max-width: 1100px) {
 
@@ -417,7 +462,7 @@ a:visited {
     .directionsSubTitle,
     .directionsList,
     .searchingIn,
-    button, {
+    button {
         scale: .75;
     }
 
@@ -434,8 +479,11 @@ a:visited {
         flex-direction: column;
     }
 
-    .characterInfo,
     .characterDescription {
+        width: 100%;
+    }
+
+    .characterInfo {
         width: 100%;
     }
 
@@ -444,9 +492,9 @@ a:visited {
         color: var(--color);
         margin-bottom: 20px;
     }
-
-
 }
+
+/* Screens smaller than 650px */
 
 @media (max-width: 650px) {
     .navTitleLP {
@@ -464,7 +512,30 @@ a:visited {
     .pac-container {
         max-width: 425px;
     }
+      
+    .tooltip .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+    font-size: .5em;
+    overflow-wrap: break-word;
+    }
+
+    .characterDescription,
+    .characterDescriptionSub {
+        font-size: 1.3em;
+    }
+
+    .characterRecs {
+        font-size: 1.3em;
+    }
+
+    .mapDiv {
+    min-width: 200px;
+    min-height: 200px;
+    }
 }
+
+/* Screens smaller than 600px */
 
 @media (max-width: 600px) {
     .pac-container {
@@ -475,7 +546,14 @@ a:visited {
     .profileTitle {
         font-size: 2em;
     }
+
+    .characterRecs,
+    .characterDescriptionSub {
+        font-size: 1.2;
+    }
 }
+
+/* Screens smaller than 500px */
 
 @media (max-width: 500px) {
     .pac-container {
@@ -493,11 +571,23 @@ a:visited {
     }
 }
 
+/* Screens smaller than 450px */
+
 @media (max-width: 450px) {
     .pac-container {
         max-width: 330px;
     }
+
+    .recsTitle {
+        font-size: 1.6em;
+    }
+
+    .profileTitle {
+        font-size: 1.7em;
+    }
 }
+
+/* Screens smaller than 400px */
 
 @media (max-width: 400px) {
     .pac-container {
@@ -518,17 +608,36 @@ a:visited {
     .directionsTitle {
         font-size: .8em;
     }
+
+    .recsTitle {
+        font-size: 1.5em;
+    }
+
+    .characterRecs {
+        font-size: 1;
+    }
 }
+
+/* Screens smaller than 375px */
 
 @media (max-width: 375px) {
     .pac-container {
         max-width: 250px;
     }
 
+    .recsTitle {
+        font-size: 1.3em;
+    }
 }
+
+/* Screens smaller than 350px */
 
 @media (max-width: 350px) {
     .pac-container {
         max-width: 215px;
+    }
+
+    .characterDescriptionSub {
+        font-size: 1em;
     }
 }

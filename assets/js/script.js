@@ -26,7 +26,7 @@ function getCharacter(index, name) {
       characters[index]['description'] = characterResponse.data.results[0].description;
       var imageSrc = characterResponse.data.results[0].thumbnail.path + "." + characterResponse.data.results[0].thumbnail.extension;
       characters[index]['image'] = imageSrc;
-      characterListUl.append("<li class='character' data-index=" + index + "><img src=" + imageSrc+" >"+"</li>");
+      characterListUl.append("<li class='character' data-index=" + index + "><img src=" + imageSrc + " >" + "</li>");
   })
   .catch(error => console.log('error', error));
 };
@@ -37,7 +37,22 @@ function autoFilling() {
 }
 
 modalButtonEl.on('click', function() {
+  var citySearchHistoryUl = $('#citySearchHistory');
+  citySearchHistoryUl.html("");
+  var cityList = JSON.parse(localStorage.getItem("cities"));
+  if (cityList != null) {
+    cityList.forEach(aCity => {
+      citySearchHistoryUl.append("<a href=''><li class='aCitySearched'>"+ aCity +"</li></a>");
+    });
+  }
   $(".modal").addClass("is-active");
+});
+
+var citySearchHistoryUl = $("#citySearchHistory");
+citySearchHistoryUl.on("click", ".aCitySearched", function(event) {
+  event.preventDefault();
+  var checkedCity = event.target.innerHTML;
+  citySearchHandler(checkedCity);
 });
 
 $(".modal-close").click(function() {
@@ -61,23 +76,50 @@ async function init() {
   await fetchCharactersAndDisplay();
 }
 
-citySearchBtn.on('click', function() {
-  if (city == "") {
-    city = citySearchInput.val();
-    city = city.slice(0,-5);
+function citySearchHandler(checkedCity) {
+  $("#modalFooterP").html("");
+  if (checkedCity=="") {
+    checkedCity = citySearchInput.val();
+    checkedCity = checkedCity.slice(0,-5);
     citySearchInput.val('');
+  }
+
+  if (city == "") {
+    var citySearched = checkedCity;
+    // If CITY is blank or null, show default of "SELECT CITY"
+    if (!citySearched || citySearched == null) {
+      $("#modalFooterP").html("Please Input A City In The USA<br>");
+      return;
+    };
+    city = citySearched.toUpperCase();
     changeCityBtn1.html(city);
     changeCityBtn2.html(city);
     $(".characters").css("display", "block");
     $(".landing-page").css("display", "none");
     $(".profile").css("display", "none");
   } else {
-    city = citySearchInput.val();
-    city = city.slice(0,-5);
-    citySearchInput.val('');
+    var citySearched = checkedCity;
+    // If CITY is blank or null, show defualt of "SELECT CITY"
+    if (!citySearched || citySearched == null) {
+      $("#modalFooterP").html("Please Input A City In The USA");
+      return;
+    };
+    city = citySearched.toUpperCase();
     changeCityBtn1.html(city);
     changeCityBtn2.html(city);
   };
+
+  var cityList = JSON.parse(localStorage.getItem("cities"));
+  if (cityList != null) {
+    var check = false;
+    cityList.forEach(aCity => {   
+      if (aCity == city) check = true;
+    });
+    if (check == false) cityList.push(city);
+  } else {
+    cityList = [city];
+  }
+  localStorage.setItem("cities", JSON.stringify(cityList));
 
   var place = "park";
   var profileMap = $("#profileMap");
@@ -86,6 +128,59 @@ citySearchBtn.on('click', function() {
 
   $(".modal").removeClass("is-active");
   $("nav").css("display", "block");
+
+}
+
+citySearchBtn.on('click', function(){
+    $("#modalFooterP").html("");
+    checkedCity = citySearchInput.val();
+    checkedCity = checkedCity.slice(0,-5);
+    citySearchInput.val('');
+  
+    if (city == "") {
+      var citySearched = checkedCity;
+      // If CITY is blank or null, show default of "SELECT CITY"
+      if (!citySearched || citySearched == null) {
+        $("#modalFooterP").html("Please Input A City In The USA<br>");
+        return;
+      };
+      city = citySearched.toUpperCase();
+      changeCityBtn1.html(city);
+      changeCityBtn2.html(city);
+      $(".characters").css("display", "block");
+      $(".landing-page").css("display", "none");
+      $(".profile").css("display", "none");
+    } else {
+      var citySearched = checkedCity;
+      // If CITY is blank or null, show defualt of "SELECT CITY"
+      if (!citySearched || citySearched == null) {
+        $("#modalFooterP").html("Please Input A City In The USA");
+        return;
+      };
+      city = citySearched.toUpperCase();
+      changeCityBtn1.html(city);
+      changeCityBtn2.html(city);
+    };
+  
+    var cityList = JSON.parse(localStorage.getItem("cities"));
+    if (cityList != null) {
+      var check = false;
+      cityList.forEach(aCity => {   
+        if (aCity == city) check = true;
+      });
+      if (check == false) cityList.push(city);
+    } else {
+      cityList = [city];
+    }
+    localStorage.setItem("cities", JSON.stringify(cityList));
+  
+    var place = "park";
+    var profileMap = $("#profileMap");
+    profileMap.html("");
+    profileMap.append("<iframe class='resp-iframe' width='600' height='450' style='border:0' loading='lazy' allowfullscreen src='https://www.google.com/maps/embed/v1/search?q="+ place +"%20near%20"+ city +"&key=AIzaSyDIAS6wopAuJKcmpYxEYnHXuXriBwMuew0'></iframe>");
+  
+    $(".modal").removeClass("is-active");
+    $("nav").css("display", "block");
 });
 
 backButton.on('click', function() {
@@ -95,10 +190,26 @@ backButton.on('click', function() {
 })
 
 changeCityBtn1.on('click', function() {
+  var citySearchHistoryUl = $('#citySearchHistory');
+  citySearchHistoryUl.html("");
+  var cityList = JSON.parse(localStorage.getItem("cities"));
+  if (cityList != null) {
+    cityList.forEach(aCity => {
+      citySearchHistoryUl.append("<a href=''><li class='aCitySearched'>"+ aCity +"</li></a>");
+    });
+  }
   $(".modal").addClass("is-active");
 });
 
 changeCityBtn2.on('click', function() {
+  var citySearchHistoryUl = $('#citySearchHistory');
+  citySearchHistoryUl.html("");
+  var cityList = JSON.parse(localStorage.getItem("cities"));
+  if (cityList != null) {
+    cityList.forEach(aCity => {
+      citySearchHistoryUl.append("<a href=''><li class='aCitySearched'>"+ aCity +"</li></a>");
+    });
+  }
   $(".modal").addClass("is-active");
 });
 
@@ -124,23 +235,21 @@ toEatCharacterInfo.on("click", ".toEatSearch", function(event) {
 
 characterListUl.on("click", ".character", function(event) {
   var index = event.currentTarget.dataset.index;
-  //localStorage.setItem("characterClicked", characterClicked);
-  console.log(event.currentTarget.dataset.index);
   var characterInfoTopUl = $("#character-info-top");
   characterInfoTopUl.html("");
-  characterInfoTopUl.append("<li><h2 class='profileTitle'>" + characters[index].character + "</h2></li>");
+  characterInfoTopUl.append("<li><h2 class='profileTitle'>" + characters[index].character.toUpperCase() + "</h2></li>");
   characterInfoTopUl.append("<li class='characterDescription'>" + characters[index].description + "</li>")
-  characterInfoTopUl.append("<li><a class='readMore' href="+ characters[index].readMore +" target='_blank'>Read More <i class='fa-solid fa-chevron-right' style='font-size:1em;color:000;'></i></a></li>")
+  characterInfoTopUl.append("<li><a class='readMore' href="+ characters[index].readMore +" target='_blank'>Read More</a></li>")
   characterInfoTopUl.append("<hr>");
-  characterInfoTopUl.append("<li><strong># OF COMICS:</strong> <span class='numComics'>" + characters[index].comics + "</span></li>");
-  characterInfoTopUl.append("<li><strong>FAVORITE THING TO DO:</strong> <span class='favThing'>"+ characters[index].favThing +"</span></li>");
-  characterInfoTopUl.append("<li><strong>FAVORITE MEAL:</strong> <span class='favMeal'>"+ characters[index].favMeal +"</span></li>");
-  characterInfoTopUl.append("<li><strong>HOBBIES:</strong> <span class='hobbies'>"+ characters[index].hobbies +"</span></li>");
+  characterInfoTopUl.append("<li><strong class='characterDescriptionSub'># OF COMICS:</strong> <span class='numComics'>" + characters[index].comics + "</span></li>");
+  characterInfoTopUl.append("<li><strong class='characterDescriptionSub'>FAVORITE THING TO DO:</strong> <span class='favThing'>"+ characters[index].favThing +"</span></li>");
+  characterInfoTopUl.append("<li><strong class='characterDescriptionSub'>FAVORITE MEAL:</strong> <span class='favMeal'>"+ characters[index].favMeal +"</span></li>");
+  characterInfoTopUl.append("<li><strong class='characterDescriptionSub'>HOBBIES:</strong> <span class='hobbies'>"+ characters[index].hobbies +"</span></li>");
   var profileImage = $('#profileImage');
   profileImage.attr("src", characters[index].image);
   
   var cityCharacterInfo = $("#city-character-info");
-  cityCharacterInfo.html(city);
+  cityCharacterInfo.html(city.toUpperCase());
 
   var toDoCharacterInfo = $("#toDo-character-info");
   toDoCharacterInfo.html("");

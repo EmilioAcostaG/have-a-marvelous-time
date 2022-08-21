@@ -5,21 +5,25 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+  <link rel="stylesheet" href="./assets/css/reset.css">
   <link rel="stylesheet" href="./assets/css/style.css">
-  <link rel="stylesheet" href="./assets/css/characters.css">
   <title>Have a MARVELous Time</title>
 </head>
 
 <body id="mainProfile" class="main">
   <nav>
-    <h1 class="navTitle">HAVE A<img src="assets/images/marvel_placeholder.png" aria-label="Marvel logo"/>OUS TIME</h1>
+    <!-- <h1 class="navTitle">HAVE A<img src="assets/images/marvel_placeholder.png" aria-label="Marvel logo"/>OUS TIME</h1> -->
+    <img src="./assets/images/header.png" class="navTitle" aria-label="header image"/>
   </nav>
   <main>
+    <!-- Begin Landing Page -->
     <section class="landing-page">
-      <h1 class="navTitleLP">HAVE A<img src="assets/images/marvel_placeholder.png" aria-label="Marvel logo"/>OUS TIME</h1>
+      <!-- <h1 class="navTitleLP">HAVE A<img src="assets/images/marvel_placeholder.png" aria-label="Marvel logo"/>OUS TIME</h1> -->
+      <img src="./assets/images/header.png" class="navTitleLP" aria-label="header image"/>
       <button class="button" data-target="#modal" id="modal-button">START YOUR ADVENTURE</button>
     </section>
+
+    <!-- Begin Characters Page -->
     <section class="characters">
       <div class="directions">
         <h1 class="directionsTitle">CHOOSE ANY CHARACTER BELOW</h1>
@@ -54,8 +58,9 @@
         <section class="profileText profileRecs profileItem">
           <div id="character-info-btm"  class="characterInfo">
             <h2 class='recsTitle'>WHAT WE RECOMMEND FOR <span id='city-character-info' class="city">CITY</span></h2>
-            <strong>FOR SOMETHING TO EAT: </strong><ul id="toEat-character-info"  class='toEat'></ul>
-            <strong>FOR SOMETHING TO DO: </strong><ul id="toDo-character-info" class='toDo'></ul>
+            <span class="characterRecs"><strong>FOR SOMETHING TO EAT: </strong><ul id="toEat-character-info"  class='toEat'></ul></span>
+            <p>
+          <span class="characterRecs"><strong>FOR SOMETHING TO DO: </strong><ul id="toDo-character-info" class='toDo'></ul></span>
           </div>
         </section>
         <section id="profileMap" class="profileMap profileItem resp-container">
@@ -73,9 +78,13 @@
         <button class="delete modal-close" aria-label="close"></button>
       </header>
       <section class="modal-card-body">
-        <input class="input" type="text" placeholder="Beging typing to search.." id="cities-autocomplete">
+        <p class="searchHistory">SEARCH HISTORY: </p>
+        <ul id="citySearchHistory">
+        </ul>
+        <input class="input" type="text" placeholder="Beginning with a city to search ..." id="cities-autocomplete">
       </section>
-      <footer class="modal-card-foot is-justify-content-center">
+      <footer id="modalFooter" class="modal-card-foot is-justify-content-center">
+        <p id="modalFooterP"></p>
         <button class="button" id="citySearchBtn">SUBMIT</button>
       </footer>
     </div>

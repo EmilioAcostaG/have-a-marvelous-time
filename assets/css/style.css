@@ -255,7 +255,6 @@ nav {
     left: 50%;
     top: 50%;
     margin-left: -60px;
-    
         
     /* Fade in tooltip - takes 1 second to go from 0% to 100% opac: */
     opacity: 0;
@@ -474,8 +473,11 @@ a:visited {
         flex-direction: column;
     }
 
-    .characterInfo,
     .characterDescription {
+        width: 100%;
+    }
+
+    .characterInfo {
         width: 100%;
     }
 
@@ -504,6 +506,28 @@ a:visited {
     .pac-container {
         max-width: 425px;
     }
+      
+    .tooltip .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+    font-size: .5em;
+    overflow-wrap: break-word;
+    }
+
+    .characterDescription,
+    .characterDescriptionSub {
+        font-size: 1.3em;
+    }
+
+    .characterRecs {
+        font-size: 1.3em;
+    }
+
+    .mapDiv {
+    min-width: 200px;
+    min-height: 200px;
+    }
+      
 }
 
 @media (max-width: 600px) {
@@ -514,6 +538,11 @@ a:visited {
     .recsTitle,
     .profileTitle {
         font-size: 2em;
+    }
+
+    .characterRecs,
+    .characterDescriptionSub {
+        font-size: 1.2;
     }
 }
 
@@ -537,6 +566,14 @@ a:visited {
     .pac-container {
         max-width: 330px;
     }
+
+    .recsTitle {
+        font-size: 1.6em;
+    }
+
+    .profileTitle {
+        font-size: 1.7em;
+    }
 }
 
 @media (max-width: 400px) {
@@ -558,6 +595,14 @@ a:visited {
     .directionsTitle {
         font-size: .8em;
     }
+
+    .recsTitle {
+        font-size: 1.5em;
+    }
+
+    .characterRecs {
+        font-size: 1;
+    }
 }
 
 @media (max-width: 375px) {
@@ -565,10 +610,17 @@ a:visited {
         max-width: 250px;
     }
 
+    .recsTitle {
+        font-size: 1.3em;
+    }
 }
 
 @media (max-width: 350px) {
     .pac-container {
         max-width: 215px;
+    }
+
+    .characterDescriptionSub {
+        font-size: 1em;
     }
 }

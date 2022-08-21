@@ -15,8 +15,11 @@ var characterClicked;
 // Get character info from Marvel
 function getCharacter(index, name) {
   // var characterUrl = "https://gateway.marvel.com/v1/public/characters?hash=123c5cd9dacf1026d9e68584ba178603&ts=1&name=" + name + "&apikey=96460a36ab9d0f7072c766f530b5fd05";
-  var characterUrl = "https://gateway.marvel.com/v1/public/characters?hash=46493b12f449dd19a8d6f3e9482602b8&ts=1&name=" + name + "&apikey=86db0495a9e60056ebd9ecda528d455d";
+  // var characterUrl = "https://gateway.marvel.com/v1/public/characters?hash=46493b12f449dd19a8d6f3e9482602b8&ts=1&name=" + name + "&apikey=86db0495a9e60056ebd9ecda528d455d";
   // var characterUrl = "https://gateway.marvel.com/v1/public/characters?hash=cd848f8ac92b7b905f9458a597170538&ts=1&name=" + name + "&apikey=676a7bbdec4d02d26007d6b7870d0d04";
+    var characterUrl = "https://gateway.marvel.com/v1/public/characters?hash=8fcbd9bf77cf9efd8d8cc44a1bbc3e2f&ts=1&name=" + name + "&apikey=dcd1861001a655a97dc302bedd1f6d4c";
+
+  
   return fetch(characterUrl)
   .then((characterResponse) => {
       return characterResponse.json();

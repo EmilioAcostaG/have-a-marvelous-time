@@ -256,7 +256,11 @@ characterListUl.on("click", ".character", function(event) {
   var characterInfoTopUl = $("#character-info-top");
   characterInfoTopUl.html("");
   characterInfoTopUl.append("<li><h2 class='profileTitle'>" + characters[index].character.toUpperCase() + "</h2></li>");
+  if (characters[index].description) {
   characterInfoTopUl.append("<li class='characterDescription'>" + characters[index].description + "</li>")
+  } else {
+    characterInfoTopUl.append("<li class='characterDescription'>" + "No description available from the Marvel API :(" + "</li>")
+  };
   characterInfoTopUl.append("<li><a class='readMore' href="+ characters[index].readMore +" target='_blank'>Read More</a></li>")
   characterInfoTopUl.append("<hr>");
   characterInfoTopUl.append("<li><strong class='characterDescriptionSub'># OF COMICS:</strong> <span class='numComics'>" + characters[index].comics + "</span></li>");

@@ -2,9 +2,11 @@
   // hash=123c5cd9dacf1026d9e68584ba178603    ts=1     apikey=96460a36ab9d0f7072c766f530b5fd05
   // hash=46493b12f449dd19a8d6f3e9482602b8    ts=1     apikey=86db0495a9e60056ebd9ecda528d455d
   // hash=cd848f8ac92b7b905f9458a597170538    ts=1     apikey=676a7bbdec4d02d26007d6b7870d0d04
+  // hash=8fcbd9bf77cf9efd8d8cc44a1bbc3e2f    ts=1     apikey=dcd1861001a655a97dc302bedd1f6d4c
+  // hash=439ddf271a1f358eed9f21bf2249972c    ts=1     apikey=3c37cf13d1db8abf8d34abee82ce9308
 var marvelAPItimestamp = 1;
-var marvelAPIhash = "8fcbd9bf77cf9efd8d8cc44a1bbc3e2f";
-var marvelAPIpublickey = "dcd1861001a655a97dc302bedd1f6d4c";
+var marvelAPIhash = "439ddf271a1f358eed9f21bf2249972c";
+var marvelAPIpublickey = "3c37cf13d1db8abf8d34abee82ce9308";
 
 var googleAPIkey = "AIzaSyDIAS6wopAuJKcmpYxEYnHXuXriBwMuew0";
 /*-------------------------------------------------*/

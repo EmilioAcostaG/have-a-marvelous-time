@@ -1,92 +1,153 @@
-var modalButtonEl = $('#modal-button');
-var citySearchBtn = $('#citySearchBtn');
-var citySearchInput = $('#cities-autocomplete');
-var city;
-var changeCityBtn1 = $('#changeCity-1');
-var changeCityBtn2 = $('#changeCity-2');
-var characterListUl = $("#characterList");
+// set-up Marvel API key and Google API key
+  // hash=123c5cd9dacf1026d9e68584ba178603    ts=1     apikey=96460a36ab9d0f7072c766f530b5fd05
+  // hash=46493b12f449dd19a8d6f3e9482602b8    ts=1     apikey=86db0495a9e60056ebd9ecda528d455d
+  // hash=cd848f8ac92b7b905f9458a597170538    ts=1     apikey=676a7bbdec4d02d26007d6b7870d0d04
+var marvelAPItimestamp = 1;
+var marvelAPIhash = "8fcbd9bf77cf9efd8d8cc44a1bbc3e2f";
+var marvelAPIpublickey = "dcd1861001a655a97dc302bedd1f6d4c";
+
+var googleAPIkey = "AIzaSyDIAS6wopAuJKcmpYxEYnHXuXriBwMuew0";
+/*-------------------------------------------------*/
+
+// Variables for global accessing
 var characters;
+var city;
 
-// These are used in Marvel.js, Characters.html, and Profile.html
-var statusCode;
-var backButton = $('.backButton');
-var characterClicked;
+// When first loading index main page
+async function init() {
+  city = "";
+  $(".landing-page").css("display", "block");
+  $(".characters").css("display", "none");
+  $(".profile").css("display", "none");
+  await fetchCharactersJSON();
+}
+init();
 
-// Get character info from Marvel
-function getCharacter(index, name) {
-  // var characterUrl = "https://gateway.marvel.com/v1/public/characters?hash=123c5cd9dacf1026d9e68584ba178603&ts=1&name=" + name + "&apikey=96460a36ab9d0f7072c766f530b5fd05";
-  // var characterUrl = "https://gateway.marvel.com/v1/public/characters?hash=46493b12f449dd19a8d6f3e9482602b8&ts=1&name=" + name + "&apikey=86db0495a9e60056ebd9ecda528d455d";
-  // var characterUrl = "https://gateway.marvel.com/v1/public/characters?hash=cd848f8ac92b7b905f9458a597170538&ts=1&name=" + name + "&apikey=676a7bbdec4d02d26007d6b7870d0d04";
-    var characterUrl = "https://gateway.marvel.com/v1/public/characters?hash=8fcbd9bf77cf9efd8d8cc44a1bbc3e2f&ts=1&name=" + name + "&apikey=dcd1861001a655a97dc302bedd1f6d4c";
+/** GOOGLE MAPS API  **/
+// Auto Fill the city search input using Google Map API
+function autoFilling() {
+  // using vanilla javascript for elements due to google maps api requirements
+  var input = document.getElementById("cities-autocomplete");
+  var autocomplete = new google.maps.places.Autocomplete(input);
+}
 
-  // Pass current characterURL into fetch
+//  Reload the map iframe using Google Map API
+var profileMap = $("#profileMap");
+function reloadGoogleMapIframe(aPlace) {
+  profileMap.html("");
+  profileMap.append("<iframe class='resp-iframe' width='600' height='450' style='border:0' loading='lazy' allowfullscreen src='https://www.google.com/maps/embed/v1/search?q="+ aPlace +"%20near%20"+ city +"&key="+ googleAPIkey +"'></iframe>");
+}
+
+// Handle the click event on toDo List
+var toDoCharacterInfo = $("#toDo-character-info");
+toDoCharacterInfo.on("click", ".toDoSearch", function(event) {
+  event.preventDefault();
+  var place = event.target.innerHTML;
+  reloadGoogleMapIframe(place);
+});
+
+// Handle the click event on toEat List
+var toEatCharacterInfo = $("#toEat-character-info");
+toEatCharacterInfo.on("click", ".toEatSearch", function(event) {
+  event.preventDefault();
+  var place = event.target.innerHTML;
+  reloadGoogleMapIframe(place);
+});
+
+/** MARVEL API **/
+var characterListUl = $("#characterList");
+
+// Fetching characters by its name from Marvel API and display in characters pages
+function fetchCharactersMarvelAPI(index, name) {
+    var characterUrl = "https://gateway.marvel.com/v1/public/characters?hash="+ marvelAPIhash +"&ts="+ marvelAPItimestamp +"&name=" + name + "&apikey="+ marvelAPIpublickey;
+
   return fetch(characterUrl)
   .then((characterResponse) => {
       return characterResponse.json();
   })
-  // Take response and pull specific data points
   .then((characterResponse) => {
       characters[index]['comics'] = characterResponse.data.results[0].comics.available;
       characters[index]['description'] = characterResponse.data.results[0].description;
       var imageSrc = characterResponse.data.results[0].thumbnail.path + "." + characterResponse.data.results[0].thumbnail.extension;
       characters[index]['image'] = imageSrc;
+      // this is to not only show characters by image but also its name through tooltip
       characterListUl.append("<li class='character tooltip' data-index=" + index + "><img src=" + imageSrc + " >" + "<span class='tooltiptext'>" + name.toUpperCase() + "</span></li>");
   })
   .catch(error => console.log('error', error));
 };
 
-// Handle Google Maps auto fill
-function autoFilling() {
-    var input = document.getElementById("cities-autocomplete");
-    var autocomplete = new google.maps.places.Autocomplete(input);
+// Fetching all characters from local Characters JSON
+// Add more character info with images from Marvel API
+// to save in characters (variable)
+async function fetchCharactersJSON() {
+  await $.getJSON("./assets/json/characters.json", function(data) {
+    characters = data;
+    for (var i = 0; i < characters.length; i++) {
+      fetchCharactersMarvelAPI(i, characters[i].character);
+    }
+  });
 }
 
-// On click save the city searched
-modalButtonEl.on('click', function() {
-  var citySearchHistoryUl = $('#citySearchHistory');
+// Handle change city button (1) click event in characters page
+var changeCityBtn1 = $('#changeCity-1');
+changeCityBtn1.on('click', function() {
+  loadingCitySearchModal();
+});
+
+// Handle change city button (2) click event in profile page
+var changeCityBtn2 = $('#changeCity-2');
+changeCityBtn2.on('click', function() {
+  loadingCitySearchModal();
+});
+
+// Handle openning click event for city search modal 
+var modalOpenningButton = $('#modal-button');
+modalOpenningButton.on('click', function() {
+  loadingCitySearchModal();
+});
+
+// Handle closing click event for city search modal
+var modalClosingButton = $(".modal-close");
+modalClosingButton.on('click', function() {
+  $(".modal").removeClass("is-active");
+});
+
+// Handle back button click event from profile
+var backButton = $('.backButton');
+backButton.on('click', function() {
+  $(".characters").css("display", "block");
+  $(".landing-page").css("display", "none");
+  $(".profile").css("display", "none");
+})
+
+var citySearchHistoryUl = $('#citySearchHistory');
+// Loading cities search history from Local Storage
+function loadingCitySearchModal() {
   citySearchHistoryUl.html("");
   var cityList = JSON.parse(localStorage.getItem("cities"));
-  // If no city exists, show default
   if (cityList != null) {
     cityList.forEach(aCity => {
       citySearchHistoryUl.append("<a href=''><li class='aCitySearched'>"+ aCity +"</li></a>");
     });
   }
   $(".modal").addClass("is-active");
-});
+}
 
-// Show city searched
-var citySearchHistoryUl = $("#citySearchHistory");
+// Handle the city searched history ul click event
 citySearchHistoryUl.on("click", ".aCitySearched", function(event) {
   event.preventDefault();
   var checkedCity = event.target.innerHTML;
   citySearchHandler(checkedCity);
 });
 
-$(".modal-close").click(function() {
-  $(".modal").removeClass("is-active");
+// Handle city search submit button from the modal
+var citySearchSubmitBtn = $('#citySearchBtn');
+citySearchSubmitBtn.on('click', function() {
+  citySearchHandler("");
 });
 
-// Get character info from JSON file and show on screen
-async function fetchCharactersAndDisplay() {
-  await $.getJSON("./assets/json/characters.json", function(data) {
-    characters = data;
-    for (var i = 0; i < characters.length; i++) {
-      getCharacter(i, characters[i].character);
-    }
-  });
-}
-
-// Show specific pages 
-async function init() {
-  $(".characters").css("display", "none");
-  $(".landing-page").css("display", "block");
-  $(".profile").css("display", "none");
-  city = "";
-  await fetchCharactersAndDisplay();
-}
-
-// Additiona search city validation
+var citySearchInput = $('#cities-autocomplete');
+// City search validation handler
 function citySearchHandler(checkedCity) {
   $("#modalFooterP").html("");
   if (checkedCity=="") {
@@ -95,14 +156,14 @@ function citySearchHandler(checkedCity) {
     citySearchInput.val('');
   }
 
+  // Check whether there is a city searched or not
+  // Depending on where page location is, decide which page to go next
   if (city == "") {
     var citySearched = checkedCity;
-    // If CITY is blank or null, show default of "SELECT CITY"
     if (!citySearched || citySearched == null) {
       $("#modalFooterP").html("Please Input A City In The USA<br>");
       return;
     };
-    // Convert city to Uppercase and update buttons
     city = citySearched.toUpperCase();
     changeCityBtn1.html(city);
     changeCityBtn2.html(city);
@@ -111,7 +172,6 @@ function citySearchHandler(checkedCity) {
     $(".profile").css("display", "none");
   } else {
     var citySearched = checkedCity;
-    // If CITY is blank or null, show defualt of "SELECT CITY"
     if (!citySearched || citySearched == null) {
       $("#modalFooterP").html("Please Input A City In The USA");
       return;
@@ -120,7 +180,9 @@ function citySearchHandler(checkedCity) {
     changeCityBtn1.html(city);
     changeCityBtn2.html(city);
   };
-  // Match city local info to JSON file
+
+  // Check whether city exists in local storage or not
+  // Save to local storage if not existed
   var cityList = JSON.parse(localStorage.getItem("cities"));
   if (cityList != null) {
     var check = false;
@@ -133,124 +195,19 @@ function citySearchHandler(checkedCity) {
   }
   localStorage.setItem("cities", JSON.stringify(cityList));
 
+  // Displaying parks in the map iframe by default
   var place = "park";
   var profileMap = $("#profileMap");
   profileMap.html("");
-  profileMap.append("<iframe class='resp-iframe' width='600' height='450' style='border:0' loading='lazy' allowfullscreen src='https://www.google.com/maps/embed/v1/search?q="+ place +"%20near%20"+ city +"&key=AIzaSyDIAS6wopAuJKcmpYxEYnHXuXriBwMuew0'></iframe>");
+  profileMap.append("<iframe class='resp-iframe' width='600' height='450' style='border:0' loading='lazy' allowfullscreen src='https://www.google.com/maps/embed/v1/search?q="+ place +"%20near%20"+ city +"&key="+ googleAPIkey +"'></iframe>");
 
   $(".modal").removeClass("is-active");
   $("nav").css("display", "block");
-
 }
 
-citySearchBtn.on('click', function(){
-    $("#modalFooterP").html("");
-    checkedCity = citySearchInput.val();
-    checkedCity = checkedCity.slice(0,-5);
-    citySearchInput.val('');
-  
-    if (city == "") {
-      var citySearched = checkedCity;
-      // If CITY is blank or null, show default of "SELECT CITY"
-      if (!citySearched || citySearched == null) {
-        $("#modalFooterP").html("Please Input A City In The USA<br>");
-        return;
-      };
-      city = citySearched.toUpperCase();
-      changeCityBtn1.html(city);
-      changeCityBtn2.html(city);
-      $(".characters").css("display", "block");
-      $(".landing-page").css("display", "none");
-      $(".profile").css("display", "none");
-    } else {
-      var citySearched = checkedCity;
-      // If CITY is blank or null, show defualt of "SELECT CITY"
-      if (!citySearched || citySearched == null) {
-        $("#modalFooterP").html("Please Input A City In The USA");
-        return;
-      };
-      city = citySearched.toUpperCase();
-      changeCityBtn1.html(city);
-      changeCityBtn2.html(city);
-    };
-  
-    // Get local storage for city check
-    var cityList = JSON.parse(localStorage.getItem("cities"));
-    if (cityList != null) {
-      var check = false;
-      cityList.forEach(aCity => {   
-        if (aCity == city) check = true;
-      });
-      if (check == false) cityList.push(city);
-    } else {
-      cityList = [city];
-    }
-    localStorage.setItem("cities", JSON.stringify(cityList));
-  
-    var place = "park";
-    var profileMap = $("#profileMap");
-    profileMap.html("");
-    profileMap.append("<iframe class='resp-iframe' width='600' height='450' style='border:0' loading='lazy' allowfullscreen src='https://www.google.com/maps/embed/v1/search?q="+ place +"%20near%20"+ city +"&key=AIzaSyDIAS6wopAuJKcmpYxEYnHXuXriBwMuew0'></iframe>");
-  
-    $(".modal").removeClass("is-active");
-    $("nav").css("display", "block");
-});
-
-// Handle back button from profile
-backButton.on('click', function() {
-  $(".characters").css("display", "block");
-  $(".landing-page").css("display", "none");
-  $(".profile").css("display", "none");
-})
-
-// Change city handling
-changeCityBtn1.on('click', function() {
-  var citySearchHistoryUl = $('#citySearchHistory');
-  citySearchHistoryUl.html("");
-  var cityList = JSON.parse(localStorage.getItem("cities"));
-  if (cityList != null) {
-    cityList.forEach(aCity => {
-      citySearchHistoryUl.append("<a href=''><li class='aCitySearched'>"+ aCity +"</li></a>");
-    });
-  }
-  $(".modal").addClass("is-active");
-});
-
-// Change city handling
-changeCityBtn2.on('click', function() {
-  var citySearchHistoryUl = $('#citySearchHistory');
-  citySearchHistoryUl.html("");
-  var cityList = JSON.parse(localStorage.getItem("cities"));
-  if (cityList != null) {
-    cityList.forEach(aCity => {
-      citySearchHistoryUl.append("<a href=''><li class='aCitySearched'>"+ aCity +"</li></a>");
-    });
-  }
-  $(".modal").addClass("is-active");
-});
-
-// Load to do info
-var toDoCharacterInfo = $("#toDo-character-info");
-toDoCharacterInfo.on("click", ".toDoSearch", function(event) {
-  event.preventDefault();
-  var place = event.target.innerHTML;
-  var profileMap = $("#profileMap");
-  profileMap.html("");
-  profileMap.append("<iframe class='resp-iframe' width='600' height='450' style='border:0' loading='lazy' allowfullscreen src='https://www.google.com/maps/embed/v1/search?q="+ place +"%20near%20"+ city +"&key=AIzaSyDIAS6wopAuJKcmpYxEYnHXuXriBwMuew0'></iframe>");
-});
-
-// Load to eat info
-var toEatCharacterInfo = $("#toEat-character-info");
-toEatCharacterInfo.on("click", ".toEatSearch", function(event) {
-  event.preventDefault();
-  var place = event.target.innerHTML;
-  var profileMap = $("#profileMap");
-  profileMap.html("");
-  profileMap.append("<iframe class='resp-iframe' width='600' height='450' style='border:0' loading='lazy' allowfullscreen src='https://www.google.com/maps/embed/v1/search?q="+ place +"%20near%20"+ city +"&key=AIzaSyDIAS6wopAuJKcmpYxEYnHXuXriBwMuew0'></iframe>");
-
-});
-
-// Generate character list
+// Handle click event on character pictures list 
+// Diplay the character info to profile page
+// Move to profile page
 characterListUl.on("click", ".character", function(event) {
   var index = event.currentTarget.dataset.index;
   var characterInfoTopUl = $("#character-info-top");
@@ -259,7 +216,7 @@ characterListUl.on("click", ".character", function(event) {
   if (characters[index].description) {
   characterInfoTopUl.append("<li class='characterDescription'>" + characters[index].description + "</li>")
   } else {
-    characterInfoTopUl.append("<li class='characterDescription'>" + "No description available from the Marvel API :(" + "</li>")
+    characterInfoTopUl.append("<li class='characterDescription'>" + "More information below!" + "</li>")
   };
   characterInfoTopUl.append("<li><a class='readMore' href="+ characters[index].readMore +" target='_blank'>Read More</a></li>")
   characterInfoTopUl.append("<hr>");
@@ -288,7 +245,3 @@ characterListUl.on("click", ".character", function(event) {
   $(".landing-page").css("display", "none");
   $(".profile").css("display", "block");
 });
-
-// Run everything on load
-init();
-

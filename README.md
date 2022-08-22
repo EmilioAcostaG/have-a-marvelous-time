@@ -19,22 +19,26 @@ Now you're able to do just that!
 ### Home Page
 When launching the application, you are welcomed by a simple yet elegant page that displays the name and a button to start your adventure.
 
-![Main homepage once the app is launched.](/assets/images/marvel_placeholder.png)
+![Main homepage once the app is launched.](./assets/images/webpage%20homescreen.png)
 
 
 To begin your adventure, you will first enter your city so that the options that are displayed reflect what is near you.
 
-![Modal pops up to have user enter city.](/assets/images/marvel_placeholder.png)
+![Modal pops up to have user enter city.](./assets/images/city%20search%20modal.png)
 
 ### Character Page
 Now is where the fun begins. The user is presented with 12 Marvel Superheroes to choose from. Choose one to see what the future awaits.
 
-![A selection of 12 characters to chooose from.](/assets/images/marvel_placeholder.png)
+![A selection of 12 characters to chooose from.](./assets/images/characters%20page%201.png)
+![More characters that are available for selection.](./assets/images/characters%20page%202.png)
 
 ## Character Profile
-this is where you get all the information on the character and what kind of activities you can plan for. Based on character information and background research, the application displays fictional character attributes. Those fictional attributes will display as suggestions of where you can go eat and what places you can visit.
+This is where you get all the information on the character and what kind of activities you can plan for. Based on character information and background research, the application displays fictional character attributes. Those fictional attributes will display as suggestions of where you can go eat and what places you can visit.
 
-![A character profile page, displaying character info and suggestions of acitivites.](./assets/images/marvel_placeholder.png)
+![A character profile page, displaying character info and suggestions of acitivites.](./assets/images/Ironman%20Example%201.png)
+
+And when you scroll down, you are able to select on a suggested activity/place and see the Google Maps update to display what is near your entered city.
+![More info that is displayed on character's profile page](./assets/images/Ironman%20Example%202.png)
 
 While on the character page, you are able to see, an interactive Google map of the city you entered. You can zoom in and out, click on places and get detailed information of each place.
 

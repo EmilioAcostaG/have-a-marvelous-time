@@ -4,7 +4,7 @@
         "toDo": ["Escape Rooms", "Gymnastics Classes", "Movies"],
         "hobbies": "Science Experiments",
         "favThing": "Perch On Buildings",
-        "toEat": ["Pizza, Hot dogs,"],
+        "toEat": ["Pizza", "Hot dogs"],
         "favMeal": "Wheat Cakes",
         "readMore": "https://www.marvel.com/characters/spider-man-peter-parker"
     },
@@ -76,7 +76,7 @@
         "toDo": ["Mixed Martial Arts Classes", "Gun Ranges"],
         "hobbies": "Martial Arts",
         "favThing": "Flying",
-        "toEat": ["Asian Restaruants"],
+        "toEat": ["Asian Restaurants"],
         "favMeal": "PB&J",
         "readMore": "https://www.marvel.com/characters/black-widow-natasha-romanoff"
     },
